@@ -8,29 +8,24 @@ require('styles/Accordion.sass');
 var Accordion = React.createClass({
 
   getInitialState: function() {
-    var categoryMap = this.props.items.map(function(i, idx) {
-      return {
-        open: false,
-        title: i.title,
-        sections: i.sections
-      }
-    });
-
     return {
-      categoryMap: categoryMap,
       visibleCategory: null
-    }
+    };
   },
 
-
+  handleClick: function(category) {
+    this.setState({
+      visibleCategory: category
+    });
+  },
 
   render: function () {
 
     var categories = [];
-    var items = this.state.categoryMap;
+    var items = this.props.items;
 
     for (var key in items) {
-      categories.push(<SectionMenuItem key={key} visibleCategory={this.} category={items[key]} />);
+      categories.push(<SectionMenuItem key={key} onClick={this.handleClick.bind(this, items[key])} visibleCategory={this.state.visibleCategory} category={items[key]} />);
     }
 
     return (

@@ -7,38 +7,16 @@ require('styles/SectionMenuItem.sass');
 
 var SectionMenuItem = React.createClass({
 
-  getInitialState: function() {
-    return {
-      open: null
-    };
-  },
-
   propTypes: {
     category: React.PropTypes.object.isRequired
   },
 
-  handleClick: function() {
-    var open = !this.props.category.open;
-    this.setState({
-      open: open
-    });
-    this.props.category.open = open;
-
-    console.log(this.props.categories);
-    
-    for (var i = 0; i < this.props.categories.length; i++) {
-      this.props.categories[i].open = false;
-    }
-
-  },
-
   render: function () {
     var category = this.props.category;
-
     return (
-        <div onClick={this.handleClick}>
+        <div onClick={this.props.onClick}>
           <h3>{category.title}</h3>
-          { this.state.open === true ? 'A' : null }
+          {this.props.visibleCategory && this.props.visibleCategory.title === category.title ? 'Reactive' : '' }
         </div>
       );
   }
