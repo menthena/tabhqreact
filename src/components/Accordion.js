@@ -7,8 +7,16 @@ var Accordion = React.createClass({
 
   getInitialState: function() {
     return {
-      visibleCategory: null
+      visibleCategory: {},
+      activeMenuSection: {}
     };
+  },
+
+  handleMenuSectionClick: function(section, event) {
+    event.stopPropagation();
+    this.setState({
+      activeMenuSection: section
+    });
   },
 
   handleClick: function(category) {
@@ -18,7 +26,7 @@ var Accordion = React.createClass({
       });
     } else {
       this.setState({
-        visibleCategory: null
+        visibleCategory: {}
       });
     }
   },
@@ -29,7 +37,7 @@ var Accordion = React.createClass({
     var items = this.props.categories;
 
     for (var key in items) {
-      categories.push(<Category key={key} onClick={this.handleClick.bind(this, items[key])} visibleCategory={this.state.visibleCategory} category={items[key]} />);
+      categories.push(<Category key={key} onClick={this.handleClick.bind(this, items[key])} handleMenuSectionClick={this.handleMenuSectionClick} visibleCategory={this.state.visibleCategory} activeMenuSection={this.state.activeMenuSection} category={items[key]} />);
     }
 
     return (

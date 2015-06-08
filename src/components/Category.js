@@ -11,7 +11,7 @@ var Category = React.createClass({
     return (
         <div onClick={this.props.onClick}>
           <h3>{category.title}</h3>
-          <MenuSections category={category} visibleCategory={this.props.visibleCategory} />
+          <MenuSections category={category} visibleCategory={this.props.visibleCategory} handleMenuSectionClick={this.props.handleMenuSectionClick} activeMenuSection={this.props.activeMenuSection} />
         </div>
       );
   }
