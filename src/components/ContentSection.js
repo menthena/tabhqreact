@@ -2,11 +2,9 @@
 
 var React = require('react/addons');
 
-//var Actions = require('actions/xxx')
+require('styles/ContentSection.sass');
 
-require('styles/PageWidget.sass');
-
-var PageWidget = React.createClass({
+var ContentSection = React.createClass({
   mixins: [],
   getInitialState: function() { return({}); },
   getDefaultProps: function() {},
@@ -35,5 +33,5 @@ var PageWidget = React.createClass({
   }
 });
 
-module.exports = PageWidget; 
+module.exports = ContentSection; 
 

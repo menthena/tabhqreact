@@ -1,7 +1,6 @@
 'use strict';
 
 var TabhqreactApp = require('./TabhqreactApp');
-var PageWidget = require('./PageWidget');
 var React = require('react');
 var Router = require('react-router');
 var Route = Router.Route;
