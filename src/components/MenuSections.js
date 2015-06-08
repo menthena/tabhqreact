@@ -20,7 +20,8 @@ var MenuSections = React.createClass({
       display: 'none'
     };
 
-    return (
+    if (sections.length) {
+      return (
         <ul style={ this.props.visibleCategory && this.props.visibleCategory.title === category.title ? visibleSections : invisibleSections }>
           {sections.map(function(section) {
             return (
@@ -31,6 +32,11 @@ var MenuSections = React.createClass({
           })}
         </ul>
       );
+    } else {
+      return (
+        <div></div>
+      )
+    }
   }
 });
 
