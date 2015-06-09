@@ -33,7 +33,7 @@ var Accordion = React.createClass({
     }
 
     return (
-        <div className="Accordion">
+        <div id="categories" className="Accordion">
           {categories}
         </div>
       );

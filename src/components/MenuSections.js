@@ -11,18 +11,15 @@ var MenuSections = React.createClass({
   render: function () {
     var category = this.props.category;
     var sections = category.sections;
+    var visibleCategory = this.props.visibleCategory;
 
-    var visibleSections = {
-      display: 'block'
-    };
-
-    var invisibleSections = {
-      display: 'none'
+    var inlineStyles = {
+      display : visibleCategory && visibleCategory.title === category.title ? 'block' : 'none'
     };
 
     if (sections.length) {
       return (
-        <ul style={ this.props.visibleCategory && this.props.visibleCategory.title === category.title ? visibleSections : invisibleSections }>
+        <ul style={ inlineStyles }>
           {sections.map(function(section) {
             return (
               <li>
@@ -35,7 +32,7 @@ var MenuSections = React.createClass({
     } else {
       return (
         <div></div>
-      )
+      );
     }
   }
 });
