@@ -27,9 +27,10 @@ var Accordion = React.createClass({
 
     var categories = [];
     var items = this.props.categories;
+    var currentSection = this.props.currentSection;
 
     for (var key in items) {
-      categories.push(<Category key={key} onClick={this.handleClick.bind(this, items[key])} visibleCategory={this.state.visibleCategory} category={items[key]} />);
+      categories.push(<Category key={key} category={items[key]} currentSection={currentSection} />);
     }
 
     return (

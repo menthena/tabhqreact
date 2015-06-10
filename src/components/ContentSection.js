@@ -5,23 +5,22 @@ var React = require('react/addons');
 require('styles/ContentSection.sass');
 
 var ContentSection = React.createClass({
-  mixins: [],
-  getInitialState: function() { return({}); },
-  getDefaultProps: function() {},
-  componentWillMount: function() {},
-  shouldComponentUpdate: function() {},
-  componentDidUpdate: function() {},
-  componentWillUnmount: function() {},
 
   propTypes: {
     section: React.PropTypes.object.isRequired
   },
 
+  getOffsetTop: function() {
+    var domNode = this.refs['section_' + this.key].getDOMNode();
+    return domNode.getBoundingClientRect().top;
+  },
+
   render: function () {
     var section = this.props.section;
+    var index = this.key;
 
     return (
-        <section>
+        <section ref={'section_' + index}>
           <div className='content-inner'>
             <header>
               <h1>{section.title}</h1>

@@ -11,18 +11,24 @@ var MenuSections = React.createClass({
   render: function () {
     var category = this.props.category;
     var sections = category.sections;
-    var visibleCategory = this.props.visibleCategory;
+    var isVisible = this.props.isVisible;
+    var currentSection = this.props.currentSection;
 
     var inlineStyles = {
-      display : visibleCategory && visibleCategory.title === category.title ? 'block' : 'none'
+      display : isVisible ? 'block' : 'none'
     };
 
     if (sections.length) {
       return (
         <ul style={ inlineStyles }>
           {sections.map(function(section) {
+
+            var currentSectionStyle = {
+              fontWeight : currentSection === section.title ? 'bold' : 'normal'
+            };
+
             return (
-              <li>
+              <li key={ category.title + section.title } style={ currentSectionStyle }>
                 {section.title}
               </li>
             );
