@@ -11,8 +11,11 @@
   "mainOutput": "main",
   "dependencies": {
     "events": "^1.0.2",
+    "express": "~4.12.4",
+    "express-generator": "~4.12.4",
     "file-loader": "^0.8.4",
     "flux": "^2.0.1",
+    "mongoose": "^4.0.5",
     "normalize.css": "~3.0.3",
     "object-assign": "^2.0.0",
     "react": "~0.12.2",
