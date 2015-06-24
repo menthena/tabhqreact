@@ -29,9 +29,10 @@ var Content = React.createClass({
 
     var sections = [];
     var items = this.props.sections;
+    var isAdmin = this.props.isAdmin;
 
     for (var key in items) {
-      sections.push(<ContentSection key={key} section={items[key]} ref={'contentsection_' + key} />);
+      sections.push(<ContentSection isAdmin={isAdmin} key={key} section={items[key]} ref={'contentsection_' + key} />);
     }
 
     return (

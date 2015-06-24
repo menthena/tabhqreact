@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react/addons');
+var PageComponent = require('./PageComponent');
 
 require('styles/ContentSection.sass');
 
@@ -17,6 +18,7 @@ var ContentSection = React.createClass({
 
   render: function () {
     var section = this.props.section;
+    var isAdmin = this.props.isAdmin;
     var index = this.key;
 
     return (
@@ -25,7 +27,7 @@ var ContentSection = React.createClass({
             <header>
               <h1>{section.title}</h1>
             </header>
-            <div className='copy' dangerouslySetInnerHTML={{__html: section.copy}} />
+            <PageComponent isAdmin={isAdmin} copy={section.copy} data={section.files}></PageComponent>
           </div>
         </section>
       );

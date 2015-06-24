@@ -1,0 +1,89 @@
+var site = {
+      'url' : '',
+      'name' : '',
+      'id' : ''
+    };
+
+    var sections = [{
+      'title': 'Home',
+      'id' : '',
+      'order' : '',
+      'pageComponent' : '',
+      'componentData' : [
+        {'textComponent' : ''},
+        {'fileComponent' : ''},
+        {'urlComponent' : ''},
+        {'imageComponent' : ''},
+        {'listComponent' : ''}
+      ]
+    }, {
+      'title' : 'test 2',
+      'id' : '',
+      'order' : '',
+      'pageComponent' : '',
+      'componentData' : [
+        {'textComponent' : ''},
+        {'fileComponent' : ''},
+        {'urlComponent' : ''},
+        {'imageComponent' : ''},
+        {'listComponent' : ''}
+      ]
+    }, {
+      'title' : 'test 3',
+      'id' : '',
+      'order' : '',
+      'pageComponent' : '',
+      'componentData' : [
+        {'textComponent' : ''},
+        {'fileComponent' : ''},
+        {'urlComponent' : ''},
+        {'imageComponent' : ''},
+        {'listComponent' : ''}
+      ]
+    }, {
+      'title' : 'test 4',
+      'id' : '',
+      'order' : '',
+      'pageComponent' : '',
+      'componentData' : [
+        {'textComponent' : ''},
+        {'fileComponent' : ''},
+        {'urlComponent' : ''},
+        {'imageComponent' : ''},
+        {'listComponent' : ''}
+      ]
+    }, {
+      'title' : 'test 5',
+      'id' : '',
+      'order' : '',
+      'pageComponent' : '',
+      'componentData' : [
+        {'textComponent' : ''},
+        {'fileComponent' : ''},
+        {'urlComponent' : ''},
+        {'imageComponent' : ''},
+        {'listComponent' : ''}
+     ]
+    }];
+
+    var categories = [{
+      'title': 'Home',
+      'id' : '',
+      'order' : ''
+    },{
+      'title': 'Category 1',
+      'id' : '',
+      'order' : ''
+    },{
+      'title': 'Category 2',
+      'id' : '',
+      'order' : ''
+    },{
+      'title': 'Category 3',
+      'id' : '',
+      'order' : ''
+    },{
+      'title': 'Category 4',
+      'id' : '',
+      'order' : ''
+    }];
