@@ -10,12 +10,14 @@
   "mainInput": "main",
   "mainOutput": "main",
   "dependencies": {
-    "react-router": "^0.11.6",
-    "flux": "^2.0.1",
     "events": "^1.0.2",
-    "object-assign": "^2.0.0", 
-    "react": "~0.12.2",
-    "normalize.css": "~3.0.3"
+    "file-loader": "^0.8.4",
+    "flux": "^2.0.1",
+    "normalize.css": "~3.0.3",
+    "object-assign": "^2.0.0",
+    "react": "~0.13.3",
+    "react-router": "^0.11.6",
+    "url-loader": "^0.5.6"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
