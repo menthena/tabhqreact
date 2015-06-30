@@ -8,8 +8,9 @@ require('styles/UrlComponent.sass');
 var UrlComponent = React.createClass({
 
   render: function () {
+    var url = this.props.url;
     return (
-      <div className="file">
+      <div data-id={this.props.id}  className="file" draggable="true" onDragEnd={this.props.dragEnd} onDragStart={this.props.dragStart}>
         <div className="remove pull-left">
           <i className="fa fa-remove fa-lg"></i>
         </div>
@@ -21,7 +22,7 @@ var UrlComponent = React.createClass({
             <form>
               <h3>
               <span>
-                Slack tips
+                {url.title}
               </span>
               {
                 //<input type="text" placeholder="Enter a title" name="title" required="" /> 

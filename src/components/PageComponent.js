@@ -10,13 +10,13 @@ var PageComponent = React.createClass({
 
   render: function () {
     var copy = this.props.copy;
-    var files = this.props.data;
+    var data = this.props.data;
     var isAdmin = this.props.isAdmin;
 
     return (
         <div>
           <TextComponent isAdmin={isAdmin} copy={copy}></TextComponent>
-          <ListComponent isAdmin={isAdmin} data={files}></ListComponent>
+          <ListComponent isAdmin={isAdmin} data={data}></ListComponent>
         </div>
       );
   }

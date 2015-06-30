@@ -42,32 +42,59 @@ var TabhqreactApp = React.createClass({
 
   render: function() {
 
-    var files = [{
+    var data = [{
       'title': 'IT Guide',
-      'extensions': 'PDF',
+      'extension': 'PDF',
       'url': 'http://google.com',
       'size': 2077912,
-      'updated_at': '2014-12-10T13:48:35.808Z'
+      'updated_at': '2014-12-10T13:48:35.808Z',
+      'type' : 'file'
     },
     {
       'title': 'Slack',
-      'extensions': 'PDF',
+      'extension': 'PDF',
       'url': 'http://yahoo.com',
       'size': 207912,
-      'updated_at': '2014-12-10T13:48:35.808Z'
+      'updated_at': '2014-12-10T13:48:35.808Z',
+      'type' : 'file'
     },
     {
       'title': 'Slack Tips',
-      'extensions': 'PDF',
+      'extension': 'PDF',
       'url': 'http://asd.com',
       'size': 20377912,
-      'updated_at': '2014-12-10T13:48:35.808Z'
+      'updated_at': '2014-12-10T13:48:35.808Z',
+      'type' : 'file'
+    },
+    {
+      'title': 'Url 1',
+      'extensions': 'PDF',
+      'url': 'http://asd1.com',
+      'size': 20377912,
+      'updated_at': '2014-12-10T13:48:35.808Z',
+      'type' : 'url'
+    },
+    {
+      'title': 'Url 2',
+      'extension': 'PDF',
+      'url': 'http://asd2.com',
+      'size': 20377912,
+      'updated_at': '2014-12-10T13:48:35.808Z',
+      'type' : 'url'
+    },
+    {
+      'title': 'Url 3',
+      'extension': 'PDF',
+      'url': 'http://asd3.com',
+      'size': 20377912,
+      'updated_at': '2014-12-10T13:48:35.808Z',
+      'type' : 'url'
     }];
 
     var sections = [{
       'title': 'Home',
       'copy' : '<p><b>In this section, you can read and learn about our set of seven essential TAB Principles - including not only what they are, but where they\'ve come from.</b></p><p></p><p>It\'s useful to think of these TAB Principles as a set, or an ecosystem. &nbsp;Each of them was created to balance and complement the others, giving us a practical and well-rounded framework for steering every aspect of our work.</p><p>Toward the end of 2014, we created and defined these Principles together, in a series of workshops that incorporated both company-wide and focused, smaller group feedback. This process has ensured that the Principles we defined are what we believe - collectively - to be the most important to our work and culture here at TAB.</p><p><b>Please note: you can download the TAB Principles in deck form directly below.</b></p><p></p>',
-      'files' : files
+      'data' : data
     }, {
       'title' : 'test 2',
       'copy' : '<p><b>In this section, you can read and learn about our set of seven essential TAB Principles - including not only what they are, but where they\'ve come from.</b></p><p></p><p>It\'s useful to think of these TAB Principles as a set, or an ecosystem. &nbsp;Each of them was created to balance and complement the others, giving us a practical and well-rounded framework for steering every aspect of our work.</p><p>Toward the end of 2014, we created and defined these Principles together, in a series of workshops that incorporated both company-wide and focused, smaller group feedback. This process has ensured that the Principles we defined are what we believe - collectively - to be the most important to our work and culture here at TAB.</p><p><b>Please note: you can download the TAB Principles in deck form directly below.</b></p><p></p>'

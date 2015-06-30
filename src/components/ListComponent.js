@@ -14,8 +14,7 @@ var ListComponent = React.createClass({
 
   getInitialState: function() {
     return {
-      files: this.props.data,
-      urls: this.props.data
+      data: this.props.data
     };
   },
 
@@ -28,26 +27,25 @@ var ListComponent = React.createClass({
       'size': 2077912,
       'updated_at': '2014-12-10T13:48:35.808Z'
     };
-    //console.log(this.props);
     this.setState({
-      files: update(this.state.files, { $push: [elem] })
+      data: update(this.state.data, { $push: [elem] })
     });
   },
 
   removeLink(file) {
-    var index = this.state.files.indexOf(file);
+    var index = this.state.data.indexOf(file);
     this.setState({
-      files: update(this.state.files, { $splice: [[index, 1]] })
+      data: update(this.state.data, { $splice: [[index, 1]] })
     });
   },
 
   dragStart: function(e) {
-    this.dragged = e.currentTarget.parentNode.parentNode.parentNode;
+    this.dragged = e.currentTarget;
     e.dataTransfer.effectAllowed = 'move';
 
     // // Firefox requires calling dataTransfer.setData
     // // for the drag to properly work
-    e.dataTransfer.setData('text/html', this.dragged);
+    e.dataTransfer.setData('text/html', e.currentTarget);
   },
   
   dragEnd: function(e) {
@@ -55,9 +53,10 @@ var ListComponent = React.createClass({
     this.dragged.parentNode.removeChild(placeholder);
 
     // Update state
-    var data = this.state.files;
+    var data = this.state.data;
     var from = Number(this.dragged.dataset.id);
     var to = Number(this.over.dataset.id);
+    console.log(to, from);
     if (from < to) { 
       to--;
     }
@@ -71,28 +70,24 @@ var ListComponent = React.createClass({
     if (e.target.className === 'placeholder') {
       return;
     }
-    this.over = e.target.parentNode;
-    e.target.parentNode.insertBefore(placeholder, e.target);
+    this.over = e.target;
+    if ( e.target.className === 'file' ) {
+      e.target.parentNode.insertBefore(placeholder, e.target);
+    }
   },
 
   render: function () {
-    var files = this.state.files || [];
-
-    var urls = this.state.urls || [];
+    var data = this.state.data || [];
     var isAdmin = this.props.isAdmin;
     var addLinkButton = '';
     if (isAdmin) {
-      addLinkButton = <button className="btn btn-default" onClick={this.addLink}>Add link</button>
+      addLinkButton = <button className="btn btn-default" onClick={this.addLink}>Add link</button>;
     }
 
     return (
         <div className="files" onDragOver={this.dragOver}>
-          {files.map(function(file) {
-            return (<FileComponent dragStart={this.dragStart} dragEnd={this.dragEnd} file={file} onClick={this.removeLink} isAdmin={isAdmin}></FileComponent>);
-          }.bind(this))}
-
-          {urls.map(function() {
-            return (<UrlComponent isAdmin={isAdmin}></UrlComponent>);
+          {data.map(function(file, i) {
+            return (<FileComponent id={i} dragStart={this.dragStart} dragEnd={this.dragEnd} file={file} onClick={this.removeLink} isAdmin={isAdmin}></FileComponent>);
           }.bind(this))}
 
           {addLinkButton}

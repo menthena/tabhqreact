@@ -27,7 +27,7 @@ var ContentSection = React.createClass({
             <header>
               <h1>{section.title}</h1>
             </header>
-            <PageComponent isAdmin={isAdmin} copy={section.copy} data={section.files}></PageComponent>
+            <PageComponent isAdmin={isAdmin} copy={section.copy} data={section.data}></PageComponent>
           </div>
         </section>
       );
