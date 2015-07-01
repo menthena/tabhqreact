@@ -10,7 +10,9 @@
 5 verbose install     'normalize.css',
 5 verbose install     'object-assign',
 5 verbose install     'react',
+5 verbose install     'react-contenteditable',
 5 verbose install     'react-router',
+5 verbose install     'react-wysiwyg-editor',
 5 verbose install     'url-loader',
 5 verbose install     'grunt',
 5 verbose install     'load-grunt-tasks',
@@ -42,8 +44,8 @@
 8 warn package.json events@1.0.2 events is also the name of a node core module.
 9 warn package.json jsxhint-loader@0.2.0 No repository field.
 10 verbose readDependencies using package.json deps
-11 verbose cache add [ 'react-router@^0.12.x', null ]
-12 verbose cache add name=undefined spec="react-router@^0.12.x" args=["react-router@^0.12.x",null]
+11 verbose cache add [ 'react-contenteditable@master', null ]
+12 verbose cache add name=undefined spec="react-contenteditable@master" args=["react-contenteditable@master",null]
 13 verbose parsed url { protocol: null,
 13 verbose parsed url   slashes: null,
 13 verbose parsed url   auth: null,
@@ -53,12 +55,12 @@
 13 verbose parsed url   hash: null,
 13 verbose parsed url   search: null,
 13 verbose parsed url   query: null,
-13 verbose parsed url   pathname: 'react-router@^0.12.x',
-13 verbose parsed url   path: 'react-router@^0.12.x',
-13 verbose parsed url   href: 'react-router@^0.12.x' }
-14 verbose already installed skipping url-loader@~0.5.5 /Users/luke/Sites/tabhqreact
-15 verbose already installed skipping grunt@~0.4.5 /Users/luke/Sites/tabhqreact
-16 verbose cache add name="react-router" spec="^0.12.x" args=["react-router","^0.12.x"]
+13 verbose parsed url   pathname: 'react-contenteditable@master',
+13 verbose parsed url   path: 'react-contenteditable@master',
+13 verbose parsed url   href: 'react-contenteditable@master' }
+14 verbose already installed skipping react-router@^0.13.x /Users/luke/Sites/tabhqreact
+15 verbose already installed skipping react-wysiwyg-editor@0.0.6 /Users/luke/Sites/tabhqreact
+16 verbose cache add name="react-contenteditable" spec="master" args=["react-contenteditable","master"]
 17 verbose parsed url { protocol: null,
 17 verbose parsed url   slashes: null,
 17 verbose parsed url   auth: null,
@@ -68,559 +70,83 @@
 17 verbose parsed url   hash: null,
 17 verbose parsed url   search: null,
 17 verbose parsed url   query: null,
-17 verbose parsed url   pathname: '^0.12.x',
-17 verbose parsed url   path: '^0.12.x',
-17 verbose parsed url   href: '^0.12.x' }
-18 verbose addNamed [ 'react-router', '^0.12.x' ]
-19 verbose addNamed [ null, '>=0.12.0-0 <0.13.0-0' ]
-20 verbose already installed skipping load-grunt-tasks@~0.6.0 /Users/luke/Sites/tabhqreact
-21 silly lockFile 91f238b7-react-router-0-12-x react-router@^0.12.x
-22 verbose lock react-router@^0.12.x /Users/luke/.npm/91f238b7-react-router-0-12-x.lock
-23 verbose already installed skipping grunt-contrib-connect@~0.8.0 /Users/luke/Sites/tabhqreact
-24 silly addNameRange { name: 'react-router',
-24 silly addNameRange   range: '>=0.12.0-0 <0.13.0-0',
-24 silly addNameRange   hasData: false }
-25 verbose already installed skipping webpack@~1.4.3 /Users/luke/Sites/tabhqreact
-26 verbose already installed skipping grunt-webpack@~1.0.8 /Users/luke/Sites/tabhqreact
-27 verbose request where is /react-router
-28 verbose request registry https://registry.npmjs.org/
-29 verbose request id dc8121ba0f54b9dd
-30 verbose url raw /react-router
-31 verbose url resolving [ 'https://registry.npmjs.org/', './react-router' ]
-32 verbose url resolved https://registry.npmjs.org/react-router
-33 verbose request where is https://registry.npmjs.org/react-router
-34 info trying registry request attempt 1 at 07:47:56
-35 verbose etag "8PWHAKEHHLHY9KR70D2ZXU5V7"
-36 http GET https://registry.npmjs.org/react-router
-37 verbose already installed skipping style-loader@~0.8.0 /Users/luke/Sites/tabhqreact
-38 verbose already installed skipping css-loader@~0.9.0 /Users/luke/Sites/tabhqreact
-39 verbose already installed skipping karma-script-launcher@~0.1.0 /Users/luke/Sites/tabhqreact
-40 verbose already installed skipping karma-chrome-launcher@~0.1.4 /Users/luke/Sites/tabhqreact
-41 verbose already installed skipping karma-firefox-launcher@~0.1.3 /Users/luke/Sites/tabhqreact
-42 verbose already installed skipping karma-jasmine@~0.1.5 /Users/luke/Sites/tabhqreact
-43 verbose already installed skipping karma-phantomjs-launcher@~0.1.3 /Users/luke/Sites/tabhqreact
-44 verbose already installed skipping karma@~0.12.21 /Users/luke/Sites/tabhqreact
-45 verbose already installed skipping grunt-karma@~0.8.3 /Users/luke/Sites/tabhqreact
-46 verbose already installed skipping karma-webpack@~1.2.2 /Users/luke/Sites/tabhqreact
-47 verbose already installed skipping webpack-dev-server@~1.6.5 /Users/luke/Sites/tabhqreact
-48 verbose already installed skipping grunt-open@~0.2.3 /Users/luke/Sites/tabhqreact
-49 verbose already installed skipping jshint-loader@~0.8.0 /Users/luke/Sites/tabhqreact
-50 verbose already installed skipping jsxhint-loader@~0.2.0 /Users/luke/Sites/tabhqreact
-51 verbose already installed skipping grunt-contrib-copy@~0.5.0 /Users/luke/Sites/tabhqreact
-52 verbose already installed skipping babel@^4.0.0 /Users/luke/Sites/tabhqreact
-53 verbose already installed skipping babel-loader@^4.0.0 /Users/luke/Sites/tabhqreact
-54 verbose already installed skipping grunt-contrib-clean@~0.6.0 /Users/luke/Sites/tabhqreact
-55 verbose already installed skipping sass-loader@^1.0.1 /Users/luke/Sites/tabhqreact
-56 verbose already installed skipping react-hot-loader@^1.0.7 /Users/luke/Sites/tabhqreact
-57 verbose already installed skipping events@^1.0.2 /Users/luke/Sites/tabhqreact
-58 verbose already installed skipping file-loader@^0.8.4 /Users/luke/Sites/tabhqreact
-59 verbose already installed skipping flux@^2.0.1 /Users/luke/Sites/tabhqreact
-60 verbose already installed skipping normalize.css@~3.0.3 /Users/luke/Sites/tabhqreact
-61 verbose already installed skipping object-assign@^2.0.0 /Users/luke/Sites/tabhqreact
-62 verbose already installed skipping react@~0.13.3 /Users/luke/Sites/tabhqreact
-63 http 304 https://registry.npmjs.org/react-router
-64 silly registry.get cb [ 304,
-64 silly registry.get   { date: 'Wed, 24 Jun 2015 06:47:43 GMT',
-64 silly registry.get     via: '1.1 varnish',
-64 silly registry.get     'cache-control': 'max-age=60',
-64 silly registry.get     etag: '"8PWHAKEHHLHY9KR70D2ZXU5V7"',
-64 silly registry.get     age: '44',
-64 silly registry.get     connection: 'keep-alive',
-64 silly registry.get     'x-served-by': 'cache-ams4121-AMS',
-64 silly registry.get     'x-cache': 'HIT',
-64 silly registry.get     'x-cache-hits': '1',
-64 silly registry.get     'x-timer': 'S1435128463.328383,VS0,VE0',
-64 silly registry.get     vary: 'Accept' } ]
-65 verbose etag https://registry.npmjs.org/react-router from cache
-66 silly addNameRange number 2 { name: 'react-router',
-66 silly addNameRange   range: '>=0.12.0-0 <0.13.0-0',
-66 silly addNameRange   hasData: true }
-67 silly addNameRange versions [ 'react-router',
-67 silly addNameRange   [ '0.0.0',
-67 silly addNameRange     '0.0.1',
-67 silly addNameRange     '0.4.0',
-67 silly addNameRange     '0.4.1',
-67 silly addNameRange     '0.4.2',
-67 silly addNameRange     '0.5.0',
-67 silly addNameRange     '0.5.1',
-67 silly addNameRange     '0.5.2',
-67 silly addNameRange     '0.5.3',
-67 silly addNameRange     '0.6.0',
-67 silly addNameRange     '0.6.1',
-67 silly addNameRange     '0.7.0',
-67 silly addNameRange     '0.8.0',
-67 silly addNameRange     '0.9.0',
-67 silly addNameRange     '0.9.1',
-67 silly addNameRange     '0.9.2',
-67 silly addNameRange     '0.9.3',
-67 silly addNameRange     '0.9.4',
-67 silly addNameRange     '0.9.5',
-67 silly addNameRange     '0.10.0',
-67 silly addNameRange     '0.10.1',
-67 silly addNameRange     '0.10.2',
-67 silly addNameRange     '0.11.0',
-67 silly addNameRange     '0.11.1',
-67 silly addNameRange     '0.11.2',
-67 silly addNameRange     '0.11.3',
-67 silly addNameRange     '0.11.4',
-67 silly addNameRange     '0.11.5',
-67 silly addNameRange     '0.11.6',
-67 silly addNameRange     '0.12.0',
-67 silly addNameRange     '0.12.1',
-67 silly addNameRange     '0.12.2',
-67 silly addNameRange     '0.12.3',
-67 silly addNameRange     '0.12.4',
-67 silly addNameRange     '0.13.0',
-67 silly addNameRange     '0.13.1',
-67 silly addNameRange     '0.13.2',
-67 silly addNameRange     '0.13.3',
-67 silly addNameRange     '1.0.0-alpha1',
-67 silly addNameRange     '1.0.0-alpha2',
-67 silly addNameRange     '1.0.0-beta1',
-67 silly addNameRange     '1.0.0-beta2' ] ]
-68 verbose addNamed [ 'react-router', '0.12.4' ]
-69 verbose addNamed [ '0.12.4', '0.12.4' ]
-70 silly lockFile ed6e4231-react-router-0-12-4 react-router@0.12.4
-71 verbose lock react-router@0.12.4 /Users/luke/.npm/ed6e4231-react-router-0-12-4.lock
-72 silly lockFile 6a9228f2-t-router-react-router-0-12-4-tgz https://registry.npmjs.org/react-router/-/react-router-0.12.4.tgz
-73 verbose lock https://registry.npmjs.org/react-router/-/react-router-0.12.4.tgz /Users/luke/.npm/6a9228f2-t-router-react-router-0-12-4-tgz.lock
-74 verbose addRemoteTarball [ 'https://registry.npmjs.org/react-router/-/react-router-0.12.4.tgz',
-74 verbose addRemoteTarball   'e60798b789729970eea3981799fac4e86bd2fb16' ]
-75 info retry fetch attempt 1 at 07:47:56
-76 verbose fetch to= /var/folders/3t/1rclxdz547b0lq3ps_rsw_tr0000gq/T/npm-65524-6-RhN8kI/registry.npmjs.org/react-router/-/react-router-0.12.4.tgz
-77 http GET https://registry.npmjs.org/react-router/-/react-router-0.12.4.tgz
-78 http 200 https://registry.npmjs.org/react-router/-/react-router-0.12.4.tgz
-79 silly lockFile 6a9228f2-t-router-react-router-0-12-4-tgz https://registry.npmjs.org/react-router/-/react-router-0.12.4.tgz
-80 silly lockFile 6a9228f2-t-router-react-router-0-12-4-tgz https://registry.npmjs.org/react-router/-/react-router-0.12.4.tgz
-81 silly lockFile ed6e4231-react-router-0-12-4 react-router@0.12.4
-82 silly lockFile ed6e4231-react-router-0-12-4 react-router@0.12.4
-83 silly lockFile 91f238b7-react-router-0-12-x react-router@^0.12.x
-84 silly lockFile 91f238b7-react-router-0-12-x react-router@^0.12.x
-85 silly resolved [ { name: 'react-router',
-85 silly resolved     version: '0.12.4',
-85 silly resolved     description: 'A complete routing library for React.js',
-85 silly resolved     main: 'lib',
-85 silly resolved     repository:
-85 silly resolved      { type: 'git',
-85 silly resolved        url: 'https://github.com/rackt/react-router.git' },
-85 silly resolved     homepage: 'https://github.com/rackt/react-router/blob/latest/README.md',
-85 silly resolved     bugs: { url: 'https://github.com/rackt/react-router/issues' },
-85 silly resolved     authors: [ 'Ryan Florence', 'Michael Jackson' ],
-85 silly resolved     license: 'MIT',
-85 silly resolved     peerDependencies: { react: '0.12.x' },
-85 silly resolved     dependencies: { qs: '2.3.3' },
-85 silly resolved     tags: [ 'react', 'router' ],
-85 silly resolved     keywords:
-85 silly resolved      [ 'react',
-85 silly resolved        'react-component',
-85 silly resolved        'routing',
-85 silly resolved        'route',
-85 silly resolved        'routes',
-85 silly resolved        'router' ],
-85 silly resolved     _id: 'react-router@0.12.4',
-85 silly resolved     scripts: {},
-85 silly resolved     _shasum: 'e60798b789729970eea3981799fac4e86bd2fb16',
-85 silly resolved     _from: 'react-router@^0.12.x',
-85 silly resolved     _resolved: 'https://registry.npmjs.org/react-router/-/react-router-0.12.4.tgz',
-85 silly resolved     _npmVersion: '2.6.0',
-85 silly resolved     _nodeVersion: '0.10.28',
-85 silly resolved     _npmUser: { name: 'mjackson', email: 'mjijackson@gmail.com' },
-85 silly resolved     maintainers: [ [Object], [Object] ],
-85 silly resolved     dist:
-85 silly resolved      { shasum: 'e60798b789729970eea3981799fac4e86bd2fb16',
-85 silly resolved        tarball: 'http://registry.npmjs.org/react-router/-/react-router-0.12.4.tgz' },
-85 silly resolved     directories: {} } ]
-86 info install react-router@0.12.4 into /Users/luke/Sites/tabhqreact
-87 info installOne react-router@0.12.4
-88 verbose node_modules/react-router unbuild
-89 info preuninstall react-router@0.11.6
-90 info uninstall react-router@0.11.6
-91 verbose true,/Users/luke/Sites/tabhqreact/node_modules,/Users/luke/Sites/tabhqreact/node_modules unbuild react-router@0.11.6
-92 info postuninstall react-router@0.11.6
-93 verbose tar unpack /Users/luke/.npm/react-router/0.12.4/package.tgz
-94 silly lockFile 4ad5a856-qreact-node-modules-react-router tar:///Users/luke/Sites/tabhqreact/node_modules/react-router
-95 verbose lock tar:///Users/luke/Sites/tabhqreact/node_modules/react-router /Users/luke/.npm/4ad5a856-qreact-node-modules-react-router.lock
-96 silly lockFile 484b5a89--react-router-0-12-4-package-tgz tar:///Users/luke/.npm/react-router/0.12.4/package.tgz
-97 verbose lock tar:///Users/luke/.npm/react-router/0.12.4/package.tgz /Users/luke/.npm/484b5a89--react-router-0-12-4-package-tgz.lock
-98 silly gunzTarPerm modes [ '755', '644' ]
-99 silly gunzTarPerm extractEntry package.json
-100 silly gunzTarPerm extractEntry README.md
-101 silly gunzTarPerm extractEntry lib/Cancellation.js
-102 silly gunzTarPerm extractEntry lib/Redirect.js
-103 silly gunzTarPerm extractEntry lib/Route.js
-104 silly gunzTarPerm extractEntry lib/RouteHandlerMixin.js
-105 silly gunzTarPerm extractEntry lib/PropTypes.js
-106 silly gunzTarPerm extractEntry lib/State.js
-107 silly gunzTarPerm extractEntry lib/Configuration.js
-108 silly gunzTarPerm extractEntry lib/TestUtils.js
-109 silly gunzTarPerm extractEntry lib/Transition.js
-110 silly gunzTarPerm extractEntry lib/runRouter.js
-111 silly gunzTarPerm extractEntry lib/PathUtils.js
-112 silly gunzTarPerm extractEntry lib/isReactChildren.js
-113 silly gunzTarPerm extractEntry lib/NavigationContext.js
-114 silly gunzTarPerm extractEntry lib/index.js
-115 silly gunzTarPerm extractEntry lib/Navigation.js
-116 silly gunzTarPerm extractEntry lib/createRouter.js
-117 silly gunzTarPerm extractEntry lib/Match.js
-118 silly gunzTarPerm extractEntry lib/createRoutesFromReactChildren.js
-119 silly gunzTarPerm extractEntry lib/History.js
-120 silly gunzTarPerm extractEntry lib/getWindowScrollPosition.js
-121 silly gunzTarPerm extractEntry lib/ScrollHistory.js
-122 silly gunzTarPerm extractEntry lib/supportsHistory.js
-123 silly gunzTarPerm extractEntry lib/StateContext.js
-124 silly gunzTarPerm extractEntry lib/components/DefaultRoute.js
-125 silly gunzTarPerm extractEntry lib/components/Link.js
-126 silly gunzTarPerm extractEntry lib/components/NotFoundRoute.js
-127 silly gunzTarPerm extractEntry lib/components/Redirect.js
-128 silly gunzTarPerm extractEntry lib/components/Route.js
-129 silly gunzTarPerm extractEntry lib/components/RouteHandler.js
-130 silly gunzTarPerm extractEntry lib/behaviors/ImitateBrowserBehavior.js
-131 silly gunzTarPerm extractEntry lib/behaviors/ScrollToTopBehavior.js
-132 silly gunzTarPerm extractEntry lib/locations/HashLocation.js
-133 silly gunzTarPerm extractEntry lib/locations/HistoryLocation.js
-134 silly gunzTarPerm extractEntry lib/locations/RefreshLocation.js
-135 silly gunzTarPerm extractEntry lib/locations/StaticLocation.js
-136 silly gunzTarPerm extractEntry lib/locations/TestLocation.js
-137 silly gunzTarPerm extractEntry lib/actions/LocationActions.js
-138 silly lockFile 4ad5a856-qreact-node-modules-react-router tar:///Users/luke/Sites/tabhqreact/node_modules/react-router
-139 silly lockFile 4ad5a856-qreact-node-modules-react-router tar:///Users/luke/Sites/tabhqreact/node_modules/react-router
-140 silly lockFile 484b5a89--react-router-0-12-4-package-tgz tar:///Users/luke/.npm/react-router/0.12.4/package.tgz
-141 silly lockFile 484b5a89--react-router-0-12-4-package-tgz tar:///Users/luke/.npm/react-router/0.12.4/package.tgz
-142 info preinstall react-router@0.12.4
-143 verbose readDependencies using package.json deps
-144 verbose readDependencies using package.json deps
-145 verbose cache add [ 'qs@2.3.3', null ]
-146 verbose cache add name=undefined spec="qs@2.3.3" args=["qs@2.3.3",null]
-147 verbose parsed url { protocol: null,
-147 verbose parsed url   slashes: null,
-147 verbose parsed url   auth: null,
-147 verbose parsed url   host: null,
-147 verbose parsed url   port: null,
-147 verbose parsed url   hostname: null,
-147 verbose parsed url   hash: null,
-147 verbose parsed url   search: null,
-147 verbose parsed url   query: null,
-147 verbose parsed url   pathname: 'qs@2.3.3',
-147 verbose parsed url   path: 'qs@2.3.3',
-147 verbose parsed url   href: 'qs@2.3.3' }
-148 verbose cache add name="qs" spec="2.3.3" args=["qs","2.3.3"]
-149 verbose parsed url { protocol: null,
-149 verbose parsed url   slashes: null,
-149 verbose parsed url   auth: null,
-149 verbose parsed url   host: null,
-149 verbose parsed url   port: null,
-149 verbose parsed url   hostname: null,
-149 verbose parsed url   hash: null,
-149 verbose parsed url   search: null,
-149 verbose parsed url   query: null,
-149 verbose parsed url   pathname: '2.3.3',
-149 verbose parsed url   path: '2.3.3',
-149 verbose parsed url   href: '2.3.3' }
-150 verbose addNamed [ 'qs', '2.3.3' ]
-151 verbose addNamed [ '2.3.3', '2.3.3' ]
-152 silly lockFile 91f8f145-qs-2-3-3 qs@2.3.3
-153 verbose lock qs@2.3.3 /Users/luke/.npm/91f8f145-qs-2-3-3.lock
-154 verbose request where is /qs
-155 verbose request registry https://registry.npmjs.org/
-156 verbose url raw /qs
-157 verbose url resolving [ 'https://registry.npmjs.org/', './qs' ]
-158 verbose url resolved https://registry.npmjs.org/qs
-159 verbose request where is https://registry.npmjs.org/qs
-160 info trying registry request attempt 1 at 07:47:57
-161 verbose etag "32DQMMPM7UN40DZIXD548OIVJ"
-162 http GET https://registry.npmjs.org/qs
-163 http 304 https://registry.npmjs.org/qs
-164 silly registry.get cb [ 304,
-164 silly registry.get   { date: 'Wed, 24 Jun 2015 06:47:43 GMT',
-164 silly registry.get     via: '1.1 varnish',
-164 silly registry.get     'cache-control': 'max-age=60',
-164 silly registry.get     etag: '"32DQMMPM7UN40DZIXD548OIVJ"',
-164 silly registry.get     age: '16',
-164 silly registry.get     connection: 'keep-alive',
-164 silly registry.get     'x-served-by': 'cache-ams4136-AMS',
-164 silly registry.get     'x-cache': 'HIT',
-164 silly registry.get     'x-cache-hits': '3',
-164 silly registry.get     'x-timer': 'S1435128463.594670,VS0,VE0',
-164 silly registry.get     vary: 'Accept' } ]
-165 verbose etag https://registry.npmjs.org/qs from cache
-166 silly lockFile 91f8f145-qs-2-3-3 qs@2.3.3
-167 silly lockFile 91f8f145-qs-2-3-3 qs@2.3.3
-168 silly resolved [ { name: 'qs',
-168 silly resolved     version: '2.3.3',
-168 silly resolved     description: 'A querystring parser that supports nesting and arrays, with a depth limit',
-168 silly resolved     homepage: 'https://github.com/hapijs/qs',
-168 silly resolved     main: 'index.js',
-168 silly resolved     dependencies: {},
-168 silly resolved     devDependencies: { code: '1.x.x', lab: '5.x.x' },
-168 silly resolved     scripts: { test: 'make test-cov' },
-168 silly resolved     repository: { type: 'git', url: 'https://github.com/hapijs/qs.git' },
-168 silly resolved     keywords: [ 'querystring', 'qs' ],
-168 silly resolved     licenses: [ [Object] ],
-168 silly resolved     gitHead: '9250c4cda5102fcf72441445816e6d311fc6813d',
-168 silly resolved     bugs: { url: 'https://github.com/hapijs/qs/issues' },
-168 silly resolved     _id: 'qs@2.3.3',
-168 silly resolved     _shasum: 'e9e85adbe75da0bbe4c8e0476a086290f863b404',
-168 silly resolved     _from: 'qs@2.3.3',
-168 silly resolved     _npmVersion: '2.1.6',
-168 silly resolved     _nodeVersion: '0.10.32',
-168 silly resolved     _npmUser: { name: 'nlf', email: 'quitlahok@gmail.com' },
-168 silly resolved     maintainers: [ [Object], [Object] ],
-168 silly resolved     dist:
-168 silly resolved      { shasum: 'e9e85adbe75da0bbe4c8e0476a086290f863b404',
-168 silly resolved        tarball: 'http://registry.npmjs.org/qs/-/qs-2.3.3.tgz' },
-168 silly resolved     directories: {},
-168 silly resolved     _resolved: 'https://registry.npmjs.org/qs/-/qs-2.3.3.tgz',
-168 silly resolved     readme: 'ERROR: No README data found!' } ]
-169 info install qs@2.3.3 into /Users/luke/Sites/tabhqreact/node_modules/react-router
-170 info installOne qs@2.3.3
-171 verbose node_modules/react-router/node_modules/qs unbuild
-172 verbose tar unpack /Users/luke/.npm/qs/2.3.3/package.tgz
-173 silly lockFile b02a8c29-les-react-router-node-modules-qs tar:///Users/luke/Sites/tabhqreact/node_modules/react-router/node_modules/qs
-174 verbose lock tar:///Users/luke/Sites/tabhqreact/node_modules/react-router/node_modules/qs /Users/luke/.npm/b02a8c29-les-react-router-node-modules-qs.lock
-175 silly lockFile ae4323d4-rs-luke-npm-qs-2-3-3-package-tgz tar:///Users/luke/.npm/qs/2.3.3/package.tgz
-176 verbose lock tar:///Users/luke/.npm/qs/2.3.3/package.tgz /Users/luke/.npm/ae4323d4-rs-luke-npm-qs-2-3-3-package-tgz.lock
-177 silly gunzTarPerm modes [ '755', '644' ]
-178 silly gunzTarPerm extractEntry package.json
-179 silly gunzTarPerm extractEntry .npmignore
-180 silly gunzTarPerm extractEntry README.md
-181 silly gunzTarPerm extractEntry LICENSE
-182 silly gunzTarPerm extractEntry index.js
-183 silly gunzTarPerm extractEntry CHANGELOG.md
-184 silly gunzTarPerm extractEntry CONTRIBUTING.md
-185 silly gunzTarPerm extractEntry Makefile
-186 silly gunzTarPerm extractEntry .jshintignore
-187 silly gunzTarPerm extractEntry .jshintrc
-188 silly gunzTarPerm extractEntry lib/index.js
-189 silly gunzTarPerm extractEntry lib/parse.js
-190 silly gunzTarPerm extractEntry lib/stringify.js
-191 silly gunzTarPerm extractEntry lib/utils.js
-192 silly gunzTarPerm extractEntry .travis.yml
-193 silly gunzTarPerm extractEntry test/parse.js
-194 silly gunzTarPerm extractEntry test/stringify.js
-195 silly lockFile b02a8c29-les-react-router-node-modules-qs tar:///Users/luke/Sites/tabhqreact/node_modules/react-router/node_modules/qs
-196 silly lockFile b02a8c29-les-react-router-node-modules-qs tar:///Users/luke/Sites/tabhqreact/node_modules/react-router/node_modules/qs
-197 silly lockFile ae4323d4-rs-luke-npm-qs-2-3-3-package-tgz tar:///Users/luke/.npm/qs/2.3.3/package.tgz
-198 silly lockFile ae4323d4-rs-luke-npm-qs-2-3-3-package-tgz tar:///Users/luke/.npm/qs/2.3.3/package.tgz
-199 info preinstall qs@2.3.3
-200 verbose readDependencies using package.json deps
-201 verbose readDependencies using package.json deps
-202 silly resolved []
-203 verbose about to build /Users/luke/Sites/tabhqreact/node_modules/react-router/node_modules/qs
-204 info build /Users/luke/Sites/tabhqreact/node_modules/react-router/node_modules/qs
-205 verbose linkStuff [ false,
-205 verbose linkStuff   false,
-205 verbose linkStuff   false,
-205 verbose linkStuff   '/Users/luke/Sites/tabhqreact/node_modules/react-router/node_modules' ]
-206 info linkStuff qs@2.3.3
-207 verbose linkBins qs@2.3.3
-208 verbose linkMans qs@2.3.3
-209 verbose rebuildBundles qs@2.3.3
-210 info install qs@2.3.3
-211 info postinstall qs@2.3.3
-212 verbose about to build /Users/luke/Sites/tabhqreact/node_modules/react-router
-213 info build /Users/luke/Sites/tabhqreact/node_modules/react-router
-214 verbose linkStuff [ false,
-214 verbose linkStuff   false,
-214 verbose linkStuff   false,
-214 verbose linkStuff   '/Users/luke/Sites/tabhqreact/node_modules' ]
-215 info linkStuff react-router@0.12.4
-216 verbose linkBins react-router@0.12.4
-217 verbose linkMans react-router@0.12.4
-218 verbose rebuildBundles react-router@0.12.4
-219 verbose rebuildBundles [ 'qs' ]
-220 info install react-router@0.12.4
-221 info postinstall react-router@0.12.4
-222 verbose readDependencies using package.json deps
-223 verbose already installed skipping react@0.12.x /Users/luke/Sites/tabhqreact
-224 silly resolved []
-225 info build /Users/luke/Sites/tabhqreact
-226 verbose linkStuff [ false, false, false, '/Users/luke/Sites' ]
-227 info linkStuff tabhqreact@0.0.0
-228 verbose linkBins tabhqreact@0.0.0
-229 verbose linkMans tabhqreact@0.0.0
-230 verbose rebuildBundles tabhqreact@0.0.0
-231 verbose rebuildBundles [ '.bin',
-231 verbose rebuildBundles   'babel',
-231 verbose rebuildBundles   'babel-core',
-231 verbose rebuildBundles   'babel-loader',
-231 verbose rebuildBundles   'bootstrap-sass',
-231 verbose rebuildBundles   'css-loader',
-231 verbose rebuildBundles   'events',
-231 verbose rebuildBundles   'file-loader',
-231 verbose rebuildBundles   'flux',
-231 verbose rebuildBundles   'grunt',
-231 verbose rebuildBundles   'grunt-contrib-clean',
-231 verbose rebuildBundles   'grunt-contrib-connect',
-231 verbose rebuildBundles   'grunt-contrib-copy',
-231 verbose rebuildBundles   'grunt-karma',
-231 verbose rebuildBundles   'grunt-open',
-231 verbose rebuildBundles   'grunt-webpack',
-231 verbose rebuildBundles   'jshint',
-231 verbose rebuildBundles   'jshint-loader',
-231 verbose rebuildBundles   'jsxhint-loader',
-231 verbose rebuildBundles   'karma',
-231 verbose rebuildBundles   'karma-chrome-launcher',
-231 verbose rebuildBundles   'karma-firefox-launcher',
-231 verbose rebuildBundles   'karma-jasmine',
-231 verbose rebuildBundles   'karma-phantomjs-launcher',
-231 verbose rebuildBundles   'karma-script-launcher',
-231 verbose rebuildBundles   'karma-webpack',
-231 verbose rebuildBundles   'load-grunt-tasks',
-231 verbose rebuildBundles   'node-sass',
-231 verbose rebuildBundles   'normalize.css',
-231 verbose rebuildBundles   'object-assign',
-231 verbose rebuildBundles   'react',
-231 verbose rebuildBundles   'react-dnd',
-231 verbose rebuildBundles   'react-hot-loader',
-231 verbose rebuildBundles   'react-router',
-231 verbose rebuildBundles   'sass-loader',
-231 verbose rebuildBundles   'style-loader',
-231 verbose rebuildBundles   'url-loader',
-231 verbose rebuildBundles   'webpack',
-231 verbose rebuildBundles   'webpack-dev-server' ]
-232 verbose rebuild bundle /Users/luke/Sites/tabhqreact/node_modules/babel-core
-233 info build /Users/luke/Sites/tabhqreact/node_modules/babel-core
-234 info preinstall babel-core@5.4.7
-235 verbose linkStuff [ false,
-235 verbose linkStuff   false,
-235 verbose linkStuff   false,
-235 verbose linkStuff   '/Users/luke/Sites/tabhqreact/node_modules' ]
-236 info linkStuff babel-core@5.4.7
-237 verbose linkBins babel-core@5.4.7
-238 verbose linkMans babel-core@5.4.7
-239 verbose rebuildBundles babel-core@5.4.7
-240 verbose rebuildBundles [ '.bin',
-240 verbose rebuildBundles   'acorn-jsx',
-240 verbose rebuildBundles   'ast-types',
-240 verbose rebuildBundles   'bluebird',
-240 verbose rebuildBundles   'chalk',
-240 verbose rebuildBundles   'convert-source-map',
-240 verbose rebuildBundles   'core-js',
-240 verbose rebuildBundles   'debug',
-240 verbose rebuildBundles   'detect-indent',
-240 verbose rebuildBundles   'esquery',
-240 verbose rebuildBundles   'estraverse',
-240 verbose rebuildBundles   'esutils',
-240 verbose rebuildBundles   'fs-readdir-recursive',
-240 verbose rebuildBundles   'globals',
-240 verbose rebuildBundles   'home-or-tmp',
-240 verbose rebuildBundles   'is-integer',
-240 verbose rebuildBundles   'js-tokens',
-240 verbose rebuildBundles   'leven',
-240 verbose rebuildBundles   'line-numbers',
-240 verbose rebuildBundles   'lodash',
-240 verbose rebuildBundles   'minimatch',
-240 verbose rebuildBundles   'output-file-sync',
-240 verbose rebuildBundles   'path-is-absolute',
-240 verbose rebuildBundles   'private',
-240 verbose rebuildBundles   'regenerator',
-240 verbose rebuildBundles   'regexpu',
-240 verbose rebuildBundles   'repeating',
-240 verbose rebuildBundles   'resolve',
-240 verbose rebuildBundles   'shebang-regex',
-240 verbose rebuildBundles   'slash',
-240 verbose rebuildBundles   'source-map',
-240 verbose rebuildBundles   'source-map-support',
-240 verbose rebuildBundles   'strip-json-comments',
-240 verbose rebuildBundles   'to-fast-properties',
-240 verbose rebuildBundles   'trim-right' ]
-241 info install babel-core@5.4.7
-242 info postinstall babel-core@5.4.7
-243 verbose rebuild bundle /Users/luke/Sites/tabhqreact/node_modules/bootstrap-sass
-244 info build /Users/luke/Sites/tabhqreact/node_modules/bootstrap-sass
-245 info preinstall bootstrap-sass@3.2.0
-246 verbose linkStuff [ false,
-246 verbose linkStuff   false,
-246 verbose linkStuff   false,
-246 verbose linkStuff   '/Users/luke/Sites/tabhqreact/node_modules' ]
-247 info linkStuff bootstrap-sass@3.2.0
-248 verbose linkBins bootstrap-sass@3.2.0
-249 verbose linkMans bootstrap-sass@3.2.0
-250 verbose rebuildBundles bootstrap-sass@3.2.0
-251 info install bootstrap-sass@3.2.0
-252 info postinstall bootstrap-sass@3.2.0
-253 verbose rebuild bundle /Users/luke/Sites/tabhqreact/node_modules/jshint
-254 info build /Users/luke/Sites/tabhqreact/node_modules/jshint
-255 info preinstall jshint@2.8.0
-256 verbose linkStuff [ false,
-256 verbose linkStuff   false,
-256 verbose linkStuff   false,
-256 verbose linkStuff   '/Users/luke/Sites/tabhqreact/node_modules' ]
-257 info linkStuff jshint@2.8.0
-258 warn prefer global jshint@2.8.0 should be installed with -g
-259 verbose linkBins jshint@2.8.0
-260 verbose link bins [ { jshint: './bin/jshint' },
-260 verbose link bins   '/Users/luke/Sites/tabhqreact/node_modules/.bin',
-260 verbose link bins   false ]
-261 verbose linkMans jshint@2.8.0
-262 verbose rebuildBundles jshint@2.8.0
-263 verbose rebuildBundles [ '.bin',
-263 verbose rebuildBundles   'cli',
-263 verbose rebuildBundles   'console-browserify',
-263 verbose rebuildBundles   'exit',
-263 verbose rebuildBundles   'htmlparser2',
-263 verbose rebuildBundles   'lodash',
-263 verbose rebuildBundles   'minimatch',
-263 verbose rebuildBundles   'shelljs',
-263 verbose rebuildBundles   'strip-json-comments' ]
-264 info install jshint@2.8.0
-265 info postinstall jshint@2.8.0
-266 verbose rebuild bundle /Users/luke/Sites/tabhqreact/node_modules/node-sass
-267 info build /Users/luke/Sites/tabhqreact/node_modules/node-sass
-268 info preinstall node-sass@3.1.2
-269 verbose linkStuff [ false,
-269 verbose linkStuff   false,
-269 verbose linkStuff   false,
-269 verbose linkStuff   '/Users/luke/Sites/tabhqreact/node_modules' ]
-270 info linkStuff node-sass@3.1.2
-271 verbose linkBins node-sass@3.1.2
-272 verbose link bins [ { 'node-sass': 'bin/node-sass' },
-272 verbose link bins   '/Users/luke/Sites/tabhqreact/node_modules/.bin',
-272 verbose link bins   false ]
-273 verbose linkMans node-sass@3.1.2
-274 verbose rebuildBundles node-sass@3.1.2
-275 verbose rebuildBundles [ '.bin',
-275 verbose rebuildBundles   'async-foreach',
-275 verbose rebuildBundles   'chalk',
-275 verbose rebuildBundles   'gaze',
-275 verbose rebuildBundles   'get-stdin',
-275 verbose rebuildBundles   'glob',
-275 verbose rebuildBundles   'meow',
-275 verbose rebuildBundles   'mkdirp',
-275 verbose rebuildBundles   'nan',
-275 verbose rebuildBundles   'npmconf',
-275 verbose rebuildBundles   'pangyp',
-275 verbose rebuildBundles   'request',
-275 verbose rebuildBundles   'sass-graph' ]
-276 info install node-sass@3.1.2
-277 verbose unsafe-perm in lifecycle true
-278 info postinstall node-sass@3.1.2
-279 verbose unsafe-perm in lifecycle true
-280 verbose rebuild bundle /Users/luke/Sites/tabhqreact/node_modules/react-dnd
-281 info build /Users/luke/Sites/tabhqreact/node_modules/react-dnd
-282 info preinstall react-dnd@1.1.3
-283 verbose linkStuff [ false,
-283 verbose linkStuff   false,
-283 verbose linkStuff   false,
-283 verbose linkStuff   '/Users/luke/Sites/tabhqreact/node_modules' ]
-284 info linkStuff react-dnd@1.1.3
-285 verbose linkBins react-dnd@1.1.3
-286 verbose linkMans react-dnd@1.1.3
-287 verbose rebuildBundles react-dnd@1.1.3
-288 verbose rebuildBundles [ 'disposables', 'dnd-core', 'invariant', 'lodash' ]
-289 info install react-dnd@1.1.3
-290 info postinstall react-dnd@1.1.3
-291 info install tabhqreact@0.0.0
-292 info postinstall tabhqreact@0.0.0
-293 info prepublish tabhqreact@0.0.0
-294 error peerinvalid The package react does not satisfy its siblings' peerDependencies requirements!
-294 error peerinvalid Peer react-router@0.12.4 wants react@0.12.x
-294 error peerinvalid Peer react-hot-loader@1.2.7 wants react@>=0.11.0
-294 error peerinvalid Peer react-dnd@1.1.3 wants react@>=0.13.0 <0.15.0
-295 error System Darwin 13.4.0
-296 error command "node" "/usr/local/bin/npm" "install"
-297 error cwd /Users/luke/Sites/tabhqreact
-298 error node -v v0.10.35
-299 error npm -v 1.4.28
-300 error code EPEERINVALID
-301 verbose exit [ 1, true ]
+17 verbose parsed url   pathname: 'master',
+17 verbose parsed url   path: 'master',
+17 verbose parsed url   href: 'master' }
+18 verbose addNamed [ 'react-contenteditable', 'master' ]
+19 verbose addNamed [ null, null ]
+20 silly lockFile 7191e244-react-contenteditable-master react-contenteditable@master
+21 verbose lock react-contenteditable@master /Users/luke/.npm/7191e244-react-contenteditable-master.lock
+22 verbose already installed skipping url-loader@~0.5.5 /Users/luke/Sites/tabhqreact
+23 info addNameTag [ 'react-contenteditable', 'master' ]
+24 verbose already installed skipping grunt@~0.4.5 /Users/luke/Sites/tabhqreact
+25 verbose already installed skipping load-grunt-tasks@~0.6.0 /Users/luke/Sites/tabhqreact
+26 verbose request where is /react-contenteditable
+27 verbose request registry https://registry.npmjs.org/
+28 verbose request id 25e08ca1742b2bf9
+29 verbose url raw /react-contenteditable
+30 verbose url resolving [ 'https://registry.npmjs.org/', './react-contenteditable' ]
+31 verbose url resolved https://registry.npmjs.org/react-contenteditable
+32 verbose request where is https://registry.npmjs.org/react-contenteditable
+33 info trying registry request attempt 1 at 08:25:03
+34 verbose etag "2FAG85TCF15W5GHFKWPB5MYGE"
+35 http GET https://registry.npmjs.org/react-contenteditable
+36 verbose already installed skipping grunt-contrib-connect@~0.8.0 /Users/luke/Sites/tabhqreact
+37 verbose already installed skipping webpack@~1.4.3 /Users/luke/Sites/tabhqreact
+38 verbose already installed skipping grunt-webpack@~1.0.8 /Users/luke/Sites/tabhqreact
+39 verbose already installed skipping style-loader@~0.8.0 /Users/luke/Sites/tabhqreact
+40 verbose already installed skipping css-loader@~0.9.0 /Users/luke/Sites/tabhqreact
+41 verbose already installed skipping karma-script-launcher@~0.1.0 /Users/luke/Sites/tabhqreact
+42 verbose already installed skipping karma-chrome-launcher@~0.1.4 /Users/luke/Sites/tabhqreact
+43 verbose already installed skipping karma-firefox-launcher@~0.1.3 /Users/luke/Sites/tabhqreact
+44 verbose already installed skipping karma-jasmine@~0.1.5 /Users/luke/Sites/tabhqreact
+45 verbose already installed skipping karma-phantomjs-launcher@~0.1.3 /Users/luke/Sites/tabhqreact
+46 verbose already installed skipping karma@~0.12.21 /Users/luke/Sites/tabhqreact
+47 verbose already installed skipping grunt-karma@~0.8.3 /Users/luke/Sites/tabhqreact
+48 verbose already installed skipping karma-webpack@~1.2.2 /Users/luke/Sites/tabhqreact
+49 verbose already installed skipping webpack-dev-server@~1.6.5 /Users/luke/Sites/tabhqreact
+50 verbose already installed skipping grunt-open@~0.2.3 /Users/luke/Sites/tabhqreact
+51 verbose already installed skipping jshint-loader@~0.8.0 /Users/luke/Sites/tabhqreact
+52 verbose already installed skipping jsxhint-loader@~0.2.0 /Users/luke/Sites/tabhqreact
+53 verbose already installed skipping grunt-contrib-copy@~0.5.0 /Users/luke/Sites/tabhqreact
+54 verbose already installed skipping babel@^4.0.0 /Users/luke/Sites/tabhqreact
+55 verbose already installed skipping babel-loader@^4.0.0 /Users/luke/Sites/tabhqreact
+56 verbose already installed skipping grunt-contrib-clean@~0.6.0 /Users/luke/Sites/tabhqreact
+57 verbose already installed skipping sass-loader@^1.0.1 /Users/luke/Sites/tabhqreact
+58 verbose already installed skipping react-hot-loader@^1.0.7 /Users/luke/Sites/tabhqreact
+59 verbose already installed skipping events@^1.0.2 /Users/luke/Sites/tabhqreact
+60 verbose already installed skipping file-loader@^0.8.4 /Users/luke/Sites/tabhqreact
+61 verbose already installed skipping flux@^2.0.1 /Users/luke/Sites/tabhqreact
+62 verbose already installed skipping normalize.css@~3.0.3 /Users/luke/Sites/tabhqreact
+63 verbose already installed skipping object-assign@^2.0.0 /Users/luke/Sites/tabhqreact
+64 verbose already installed skipping react@~0.13.3 /Users/luke/Sites/tabhqreact
+65 http 304 https://registry.npmjs.org/react-contenteditable
+66 silly registry.get cb [ 304,
+66 silly registry.get   { date: 'Wed, 01 Jul 2015 07:24:49 GMT',
+66 silly registry.get     via: '1.1 varnish',
+66 silly registry.get     'cache-control': 'max-age=60',
+66 silly registry.get     etag: '"2FAG85TCF15W5GHFKWPB5MYGE"',
+66 silly registry.get     age: '0',
+66 silly registry.get     connection: 'keep-alive',
+66 silly registry.get     'x-served-by': 'cache-lhr6329-LHR',
+66 silly registry.get     'x-cache': 'MISS',
+66 silly registry.get     'x-cache-hits': '0',
+66 silly registry.get     'x-timer': 'S1435735489.303832,VS0,VE162',
+66 silly registry.get     vary: 'Accept' } ]
+67 verbose etag https://registry.npmjs.org/react-contenteditable from cache
+68 silly lockFile 7191e244-react-contenteditable-master react-contenteditable@master
+69 silly lockFile 7191e244-react-contenteditable-master react-contenteditable@master
+70 error notarget No compatible version found: react-contenteditable@'master'
+70 error notarget Valid install targets:
+70 error notarget ["0.0.0","0.0.1","0.0.2"]
+70 error notarget
+70 error notarget This is most likely not a problem with npm itself.
+70 error notarget In most cases you or one of your dependencies are requesting
+70 error notarget a package version that doesn't exist.
+71 error System Darwin 13.4.0
+72 error command "node" "/usr/local/bin/npm" "install"
+73 error cwd /Users/luke/Sites/tabhqreact
+74 error node -v v0.10.35
+75 error npm -v 1.4.28
+76 error code ETARGET
+77 verbose exit [ 1, true ]
