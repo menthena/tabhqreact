@@ -3,14 +3,17 @@
 var React = require('react/addons');
 var FileComponent = require('./FileComponent');
 var UrlComponent = require('./UrlComponent');
+var DragMixin = require('../mixins/DragMixin');
 var update = React.addons.update;
 
 require('styles/ListComponent.sass');
 
-var placeholder = document.createElement("div");
-placeholder.className = "placeholder";
-
 var ListComponent = React.createClass({
+  mixins: [DragMixin],
+
+  componentDidMount() {
+    this.loadDraggableData(this.state.data);
+  },
 
   getInitialState: function() {
     return {
@@ -37,43 +40,6 @@ var ListComponent = React.createClass({
     this.setState({
       data: update(this.state.data, { $splice: [[index, 1]] })
     });
-  },
-
-  dragStart: function(e) {
-    this.dragged = e.currentTarget;
-    e.dataTransfer.effectAllowed = 'move';
-
-    // // Firefox requires calling dataTransfer.setData
-    // // for the drag to properly work
-    e.dataTransfer.setData('text/html', e.currentTarget);
-  },
-  
-  dragEnd: function(e) {
-    this.dragged.style.display = 'block';
-    this.dragged.parentNode.removeChild(placeholder);
-
-    // Update state
-    var data = this.state.data;
-    var from = Number(this.dragged.dataset.id);
-    var to = Number(this.over.dataset.id);
-    console.log(to, from);
-    if (from < to) { 
-      to--;
-    }
-    data.splice(to, 0, data.splice(from, 1)[0]);
-    this.setState({data: data});
-  },
-  
-  dragOver: function(e) {
-    e.preventDefault();
-    this.dragged.style.display = 'none';
-    if (e.target.className === 'placeholder') {
-      return;
-    }
-    this.over = e.target;
-    if ( e.target.className === 'file' ) {
-      e.target.parentNode.insertBefore(placeholder, e.target);
-    }
   },
 
   render: function () {
