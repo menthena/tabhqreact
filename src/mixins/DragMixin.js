@@ -1,3 +1,7 @@
+'use strict';
+
+require('../styles/DragMixin.sass');
+
 var DragMixin = {
 
   componentWillMount() {
@@ -10,7 +14,7 @@ var DragMixin = {
 
   dragStart: function(e) {
     this.dragged = e.currentTarget;
-    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.effectAllowed = 'copy';
     this.placeholder = document.createElement("div");
     this.placeholder.className = "placeholder";
 
@@ -19,8 +23,12 @@ var DragMixin = {
     e.dataTransfer.setData('text/html', e.currentTarget);
   },
 
-  dragHover: function(e){
-    // console.log(e.currentTarget);
+  mouseDown: function(e){
+    var element = e.target;
+    if (element.className.indexOf('drag-controller') === -1) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
   },
   
   dragEnd: function(e) {
@@ -37,6 +45,8 @@ var DragMixin = {
       this.draggableData.splice(to, 0, this.draggableData.splice(from, 1)[0]);
       this.setState({data: this.draggableData});
       this.dragged = null;
+    } else {
+      this.dragged.parentNode.removeChild(this.placeholder);
     }
   },
   

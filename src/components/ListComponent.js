@@ -53,7 +53,7 @@ var ListComponent = React.createClass({
     return (
         <div className="files" onDragOver={this.dragOver}>
           {data.map(function(file, i) {
-            return (<FileComponent id={i} dragStart={this.dragStart} dragEnd={this.dragEnd} file={file} onClick={this.removeLink} isAdmin={isAdmin}></FileComponent>);
+            return (<FileComponent id={i} dragStart={this.dragStart} dragEnd={this.dragEnd} mouseDown={this.mouseDown} file={file} onClick={this.removeLink} isAdmin={isAdmin}></FileComponent>);
           }.bind(this))}
 
           {addLinkButton}

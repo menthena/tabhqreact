@@ -20,7 +20,7 @@ var FileComponent = React.createClass({
     }
 
     return (
-      <div data-id={this.props.id} className="file" data-droppable="file" draggable="true" onDragEnd={this.props.dragEnd} onDragStart={this.props.dragStart}>
+      <div data-id={this.props.id} className="file" data-droppable="file" draggable="true" onMouseDown={this.props.mouseDown} onDragEnd={this.props.dragEnd} onDragStart={this.props.dragStart}>
         <div className="remove pull-left" onClick={this.props.onClick.bind(null, file)}>
           <i className="fa fa-remove fa-lg"></i>
         </div>
@@ -55,7 +55,7 @@ var FileComponent = React.createClass({
             </a>
           </div>
           <div className="pull-left re-order">
-            <i className="fa fa-reorder fa-lg"></i>
+            <i className="fa fa-reorder fa-lg drag-controller"></i>
           </div>
         </div>
       </div>  
