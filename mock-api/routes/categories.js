@@ -1,9 +1,11 @@
+'use strict';
+
+var _ = require('underscore');
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var ObjectId = require('mongoose').Types.ObjectId;
-var categorySchema = require('../schemas/CategorySchema');
-var categoriesModel = mongoose.model('categories', categorySchema);
+var Category = require('../schemas/CategorySchema'); 
 
 router.get('/', function (req, res, next) {
 	var sendResponse = function (err, categories) {
@@ -11,10 +13,10 @@ router.get('/', function (req, res, next) {
 	};
 
 	if (req.query.includes === 'sections') {
-		categoriesModel.find({}, sendResponse);
+		Category.find({}, sendResponse);
 	}
 	else {
-		categoriesModel.find({}).select('_id title order').exec(sendResponse);
+		Category.find({}).select('_id title order').exec(sendResponse);
 	}
 });
 
@@ -29,16 +31,86 @@ router.get('/:id', function (req, res, next) {
 	};
 
 	if (req.query.includes === 'sections') {
-		categoriesModel.findById(req.params.id, sendResponse);
+		Category.findById(req.params.id, sendResponse);
 	}
 	else {
-		categoriesModel.findById(req.params.id).select('_id title order').exec(sendResponse);
+		Category.findById(req.params.id).select('_id title order').exec(sendResponse);
 	}
+});
+
+router.patch('/:id', function (req, res, next) {
+	var updatedModel = _(req.body).pick('title', 'order');
+
+	Category.findOneAndUpdate({ _id: req.params.id }, updatedModel, function(err, cat) {
+		if (err) {
+			res.status(422);
+			res.send({ message: 'Bad request'});
+		}
+		else {
+			res.send({ data: cat });
+		}
+	});
+});
+
+router.patch('/:id/sections/:section_id', function (req, res, next) {
+	var updatedModel = _(req.body).pick('title', 'order');
+
+	var keys = Object.keys(updatedModel),
+      keysLen = keys.length,
+      prefix = 'sections.$.';
+
+  for (var i = 0; i<keysLen ; i++) {
+    updatedModel[prefix+keys[i]] = updatedModel[keys[i]];
+    delete updatedModel[keys[i]];
+  }
+
+	var categoryId = req.params.id;
+	var sectionId = req.params.section_id;
+
+	Category.findOneAndUpdate({ _id: categoryId, 'sections._id': sectionId }, updatedModel, function(err, cat) {
+		if (err) {
+			res.status(422);
+			res.send({ message: 'Bad request'});
+		}
+		else {
+			res.send({ data: cat });
+		}
+	});
+});
+
+router.post('/', function (req, res, next) {
+	var newCategory = _(req.body).pick('title', 'order');
+
+	Category.create(newCategory, function(err, cat) {
+		if (err) {
+			res.status(422);
+			res.send({ message: 'Bad request'});
+		}
+		else {
+			res.status(201).send({ data: cat });
+		}
+	});
+});
+
+router.post('/:id/sections', function (req, res, next) {
+	var newSection = _(req.body).pick('title', 'order');
+
+	var categoryId = req.params.id;
+
+	Category.findOneAndUpdate({ _id: categoryId }, { $push: { sections: newSection }}, function(err, cat) {
+		if (err) {
+			res.status(422);
+			res.send({ message: 'Bad request'});
+		}
+		else {
+			res.status(201).send({ data: cat });
+		}
+	});
 });
 
 router.delete('/:id', function (req, res, next) {
 
-	categoriesModel.remove({ _id: req.params.id }, function(err) {
+	Category.remove({ _id: req.params.id }, function(err) {
 		if (err) {
 			res.status(422);
 			res.send({ message: 'Bad request'});
@@ -55,7 +127,7 @@ router.delete('/:id/sections/:section_id', function (req, res, next) {
 	var categoryId = req.params.id;
 	var sectionId = req.params.section_id;
 
-	categoriesModel.findOneAndUpdate({ _id: new ObjectId(categoryId) }, { $pull: { sections: { _id: new ObjectId(sectionId) }}}, function(err, category) {
+	Category.findOneAndUpdate({ _id: categoryId }, { $pull: { sections: { _id: sectionId }}}, function(err, category) {
 		if (err) {
 			res.status(422);
 			res.send({ message: 'Bad request'});
