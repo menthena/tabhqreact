@@ -1,7 +1,18 @@
 'use strict';
 
 var mongoose = require('mongoose');
-var sectionSchema = require('../schemas/SectionSchema');
+
+var componentSchema = {
+	componentType: String,
+	data: {}
+};
+
+var sectionSchema = {
+	title: String,
+	order: Number,
+	template: String,
+	components: [componentSchema]
+};
 
 var categorySchema = {
 	title: String,

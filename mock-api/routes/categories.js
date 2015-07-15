@@ -5,7 +5,9 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var ObjectId = require('mongoose').Types.ObjectId;
-var Category = require('../schemas/CategorySchema'); 
+var Category = require('../models/Category'); 
+
+var allowedSectionProps = ['title', 'order', 'template', 'components'];
 
 router.get('/', function (req, res, next) {
 	var sendResponse = function (err, categories) {
@@ -53,7 +55,7 @@ router.patch('/:id', function (req, res, next) {
 });
 
 router.patch('/:id/sections/:section_id', function (req, res, next) {
-	var updatedModel = _(req.body).pick('title', 'order');
+	var updatedModel = _(req.body).pick(allowedSectionProps);
 
 	var keys = Object.keys(updatedModel),
       keysLen = keys.length,
@@ -93,8 +95,7 @@ router.post('/', function (req, res, next) {
 });
 
 router.post('/:id/sections', function (req, res, next) {
-	var newSection = _(req.body).pick('title', 'order');
-
+	var newSection = _(req.body).pick(allowedSectionProps);
 	var categoryId = req.params.id;
 
 	Category.findOneAndUpdate({ _id: categoryId }, { $push: { sections: newSection }}, function(err, cat) {
