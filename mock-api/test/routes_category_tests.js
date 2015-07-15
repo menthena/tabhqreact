@@ -277,5 +277,28 @@ describe('Routing', function() {
         });
       });
     });
+
+    it('should allow sections to have component data', function(done) {
+      var categoryId = _.sample(categories)._id;
+      var newComponents = [{'componentType': 'text', 'data': 'hi'}];
+      var newSection = {'title': 'NEW SECT', 'order': 55, 'template': 'page', 'components': newComponents};
+
+      request(app)
+      .post('/categories/' + categoryId + '/sections')
+      .send(newSection)
+      .expect(201)
+      .end(function(err, res) {
+        should.not.exist(err);
+        var resultSection = _.find(res.body.data.sections, function(s) { return s.order === 55; });
+        resultSection.should.match(newSection);
+
+        Category.findById(categoryId, function(err, category) { 
+          should.not.exist(err);
+          var dbSection = _.find(category.sections, function(s) { return s._id.toHexString() === resultSection._id; });
+          dbSection.should.match(newSection);
+          done();
+        });
+      });
+    });
   });
 });
