@@ -5,12 +5,17 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var config = require('./config');
 var categories = require('./routes/categories');
 
+var bodyParser = require('body-parser');
+
 var app = express();
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/tabhqreact');
+mongoose.connect(config.db.mongodb);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
