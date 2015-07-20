@@ -10,10 +10,10 @@
 5 verbose install     'normalize.css',
 5 verbose install     'object-assign',
 5 verbose install     'react',
-5 verbose install     'react-contenteditable',
 5 verbose install     'react-router',
 5 verbose install     'react-wysiwyg-editor',
 5 verbose install     'url-loader',
+5 verbose install     'alloy-editor',
 5 verbose install     'grunt',
 5 verbose install     'load-grunt-tasks',
 5 verbose install     'grunt-contrib-connect',
@@ -44,109 +44,114 @@
 8 warn package.json events@1.0.2 events is also the name of a node core module.
 9 warn package.json jsxhint-loader@0.2.0 No repository field.
 10 verbose readDependencies using package.json deps
-11 verbose cache add [ 'react-contenteditable@master', null ]
-12 verbose cache add name=undefined spec="react-contenteditable@master" args=["react-contenteditable@master",null]
-13 verbose parsed url { protocol: null,
-13 verbose parsed url   slashes: null,
-13 verbose parsed url   auth: null,
-13 verbose parsed url   host: null,
-13 verbose parsed url   port: null,
-13 verbose parsed url   hostname: null,
-13 verbose parsed url   hash: null,
-13 verbose parsed url   search: null,
-13 verbose parsed url   query: null,
-13 verbose parsed url   pathname: 'react-contenteditable@master',
-13 verbose parsed url   path: 'react-contenteditable@master',
-13 verbose parsed url   href: 'react-contenteditable@master' }
-14 verbose already installed skipping react-router@^0.13.x /Users/luke/Sites/tabhqreact
-15 verbose already installed skipping react-wysiwyg-editor@0.0.6 /Users/luke/Sites/tabhqreact
-16 verbose cache add name="react-contenteditable" spec="master" args=["react-contenteditable","master"]
-17 verbose parsed url { protocol: null,
-17 verbose parsed url   slashes: null,
-17 verbose parsed url   auth: null,
-17 verbose parsed url   host: null,
-17 verbose parsed url   port: null,
-17 verbose parsed url   hostname: null,
-17 verbose parsed url   hash: null,
-17 verbose parsed url   search: null,
-17 verbose parsed url   query: null,
-17 verbose parsed url   pathname: 'master',
-17 verbose parsed url   path: 'master',
-17 verbose parsed url   href: 'master' }
-18 verbose addNamed [ 'react-contenteditable', 'master' ]
-19 verbose addNamed [ null, null ]
-20 silly lockFile 7191e244-react-contenteditable-master react-contenteditable@master
-21 verbose lock react-contenteditable@master /Users/luke/.npm/7191e244-react-contenteditable-master.lock
-22 verbose already installed skipping url-loader@~0.5.5 /Users/luke/Sites/tabhqreact
-23 info addNameTag [ 'react-contenteditable', 'master' ]
-24 verbose already installed skipping grunt@~0.4.5 /Users/luke/Sites/tabhqreact
-25 verbose already installed skipping load-grunt-tasks@~0.6.0 /Users/luke/Sites/tabhqreact
-26 verbose request where is /react-contenteditable
-27 verbose request registry https://registry.npmjs.org/
-28 verbose request id 25e08ca1742b2bf9
-29 verbose url raw /react-contenteditable
-30 verbose url resolving [ 'https://registry.npmjs.org/', './react-contenteditable' ]
-31 verbose url resolved https://registry.npmjs.org/react-contenteditable
-32 verbose request where is https://registry.npmjs.org/react-contenteditable
-33 info trying registry request attempt 1 at 08:25:03
-34 verbose etag "2FAG85TCF15W5GHFKWPB5MYGE"
-35 http GET https://registry.npmjs.org/react-contenteditable
-36 verbose already installed skipping grunt-contrib-connect@~0.8.0 /Users/luke/Sites/tabhqreact
-37 verbose already installed skipping webpack@~1.4.3 /Users/luke/Sites/tabhqreact
-38 verbose already installed skipping grunt-webpack@~1.0.8 /Users/luke/Sites/tabhqreact
-39 verbose already installed skipping style-loader@~0.8.0 /Users/luke/Sites/tabhqreact
-40 verbose already installed skipping css-loader@~0.9.0 /Users/luke/Sites/tabhqreact
-41 verbose already installed skipping karma-script-launcher@~0.1.0 /Users/luke/Sites/tabhqreact
-42 verbose already installed skipping karma-chrome-launcher@~0.1.4 /Users/luke/Sites/tabhqreact
-43 verbose already installed skipping karma-firefox-launcher@~0.1.3 /Users/luke/Sites/tabhqreact
-44 verbose already installed skipping karma-jasmine@~0.1.5 /Users/luke/Sites/tabhqreact
-45 verbose already installed skipping karma-phantomjs-launcher@~0.1.3 /Users/luke/Sites/tabhqreact
-46 verbose already installed skipping karma@~0.12.21 /Users/luke/Sites/tabhqreact
-47 verbose already installed skipping grunt-karma@~0.8.3 /Users/luke/Sites/tabhqreact
-48 verbose already installed skipping karma-webpack@~1.2.2 /Users/luke/Sites/tabhqreact
-49 verbose already installed skipping webpack-dev-server@~1.6.5 /Users/luke/Sites/tabhqreact
-50 verbose already installed skipping grunt-open@~0.2.3 /Users/luke/Sites/tabhqreact
-51 verbose already installed skipping jshint-loader@~0.8.0 /Users/luke/Sites/tabhqreact
-52 verbose already installed skipping jsxhint-loader@~0.2.0 /Users/luke/Sites/tabhqreact
-53 verbose already installed skipping grunt-contrib-copy@~0.5.0 /Users/luke/Sites/tabhqreact
-54 verbose already installed skipping babel@^4.0.0 /Users/luke/Sites/tabhqreact
-55 verbose already installed skipping babel-loader@^4.0.0 /Users/luke/Sites/tabhqreact
-56 verbose already installed skipping grunt-contrib-clean@~0.6.0 /Users/luke/Sites/tabhqreact
-57 verbose already installed skipping sass-loader@^1.0.1 /Users/luke/Sites/tabhqreact
-58 verbose already installed skipping react-hot-loader@^1.0.7 /Users/luke/Sites/tabhqreact
-59 verbose already installed skipping events@^1.0.2 /Users/luke/Sites/tabhqreact
-60 verbose already installed skipping file-loader@^0.8.4 /Users/luke/Sites/tabhqreact
-61 verbose already installed skipping flux@^2.0.1 /Users/luke/Sites/tabhqreact
-62 verbose already installed skipping normalize.css@~3.0.3 /Users/luke/Sites/tabhqreact
-63 verbose already installed skipping object-assign@^2.0.0 /Users/luke/Sites/tabhqreact
-64 verbose already installed skipping react@~0.13.3 /Users/luke/Sites/tabhqreact
-65 http 304 https://registry.npmjs.org/react-contenteditable
-66 silly registry.get cb [ 304,
-66 silly registry.get   { date: 'Wed, 01 Jul 2015 07:24:49 GMT',
-66 silly registry.get     via: '1.1 varnish',
-66 silly registry.get     'cache-control': 'max-age=60',
-66 silly registry.get     etag: '"2FAG85TCF15W5GHFKWPB5MYGE"',
-66 silly registry.get     age: '0',
-66 silly registry.get     connection: 'keep-alive',
-66 silly registry.get     'x-served-by': 'cache-lhr6329-LHR',
-66 silly registry.get     'x-cache': 'MISS',
-66 silly registry.get     'x-cache-hits': '0',
-66 silly registry.get     'x-timer': 'S1435735489.303832,VS0,VE162',
-66 silly registry.get     vary: 'Accept' } ]
-67 verbose etag https://registry.npmjs.org/react-contenteditable from cache
-68 silly lockFile 7191e244-react-contenteditable-master react-contenteditable@master
-69 silly lockFile 7191e244-react-contenteditable-master react-contenteditable@master
-70 error notarget No compatible version found: react-contenteditable@'master'
-70 error notarget Valid install targets:
-70 error notarget ["0.0.0","0.0.1","0.0.2"]
-70 error notarget
-70 error notarget This is most likely not a problem with npm itself.
-70 error notarget In most cases you or one of your dependencies are requesting
-70 error notarget a package version that doesn't exist.
-71 error System Darwin 13.4.0
-72 error command "node" "/usr/local/bin/npm" "install"
-73 error cwd /Users/luke/Sites/tabhqreact
-74 error node -v v0.10.35
-75 error npm -v 1.4.28
-76 error code ETARGET
-77 verbose exit [ 1, true ]
+11 verbose already installed skipping flux@^2.0.1 /Users/luke/Sites/tabhqreact
+12 verbose already installed skipping normalize.css@~3.0.3 /Users/luke/Sites/tabhqreact
+13 verbose already installed skipping object-assign@^2.0.0 /Users/luke/Sites/tabhqreact
+14 verbose already installed skipping react@~0.13.3 /Users/luke/Sites/tabhqreact
+15 verbose already installed skipping react-router@^0.13.x /Users/luke/Sites/tabhqreact
+16 verbose already installed skipping react-wysiwyg-editor@0.0.6 /Users/luke/Sites/tabhqreact
+17 verbose already installed skipping url-loader@~0.5.5 /Users/luke/Sites/tabhqreact
+18 verbose cache add [ 'alloy-editor@^0.3.7', null ]
+19 verbose cache add name=undefined spec="alloy-editor@^0.3.7" args=["alloy-editor@^0.3.7",null]
+20 verbose parsed url { protocol: null,
+20 verbose parsed url   slashes: null,
+20 verbose parsed url   auth: null,
+20 verbose parsed url   host: null,
+20 verbose parsed url   port: null,
+20 verbose parsed url   hostname: null,
+20 verbose parsed url   hash: null,
+20 verbose parsed url   search: null,
+20 verbose parsed url   query: null,
+20 verbose parsed url   pathname: 'alloy-editor@^0.3.7',
+20 verbose parsed url   path: 'alloy-editor@^0.3.7',
+20 verbose parsed url   href: 'alloy-editor@^0.3.7' }
+21 verbose already installed skipping grunt@~0.4.5 /Users/luke/Sites/tabhqreact
+22 verbose already installed skipping load-grunt-tasks@~0.6.0 /Users/luke/Sites/tabhqreact
+23 verbose cache add name="alloy-editor" spec="^0.3.7" args=["alloy-editor","^0.3.7"]
+24 verbose parsed url { protocol: null,
+24 verbose parsed url   slashes: null,
+24 verbose parsed url   auth: null,
+24 verbose parsed url   host: null,
+24 verbose parsed url   port: null,
+24 verbose parsed url   hostname: null,
+24 verbose parsed url   hash: null,
+24 verbose parsed url   search: null,
+24 verbose parsed url   query: null,
+24 verbose parsed url   pathname: '^0.3.7',
+24 verbose parsed url   path: '^0.3.7',
+24 verbose parsed url   href: '^0.3.7' }
+25 verbose addNamed [ 'alloy-editor', '^0.3.7' ]
+26 verbose addNamed [ null, '>=0.3.7-0 <0.4.0-0' ]
+27 verbose already installed skipping grunt-contrib-connect@~0.8.0 /Users/luke/Sites/tabhqreact
+28 silly lockFile 2af2b4f1-alloy-editor-0-3-7 alloy-editor@^0.3.7
+29 verbose lock alloy-editor@^0.3.7 /Users/luke/.npm/2af2b4f1-alloy-editor-0-3-7.lock
+30 verbose already installed skipping webpack@~1.4.3 /Users/luke/Sites/tabhqreact
+31 silly addNameRange { name: 'alloy-editor',
+31 silly addNameRange   range: '>=0.3.7-0 <0.4.0-0',
+31 silly addNameRange   hasData: false }
+32 verbose already installed skipping grunt-webpack@~1.0.8 /Users/luke/Sites/tabhqreact
+33 verbose already installed skipping style-loader@~0.8.0 /Users/luke/Sites/tabhqreact
+34 verbose request where is /alloy-editor
+35 verbose request registry https://registry.npmjs.org/
+36 verbose request id ae1f87e2e06a4287
+37 verbose url raw /alloy-editor
+38 verbose url resolving [ 'https://registry.npmjs.org/', './alloy-editor' ]
+39 verbose url resolved https://registry.npmjs.org/alloy-editor
+40 verbose request where is https://registry.npmjs.org/alloy-editor
+41 info trying registry request attempt 1 at 08:24:11
+42 http GET https://registry.npmjs.org/alloy-editor
+43 verbose already installed skipping css-loader@~0.9.0 /Users/luke/Sites/tabhqreact
+44 verbose already installed skipping karma-script-launcher@~0.1.0 /Users/luke/Sites/tabhqreact
+45 verbose already installed skipping karma-chrome-launcher@~0.1.4 /Users/luke/Sites/tabhqreact
+46 verbose already installed skipping karma-firefox-launcher@~0.1.3 /Users/luke/Sites/tabhqreact
+47 verbose already installed skipping karma-jasmine@~0.1.5 /Users/luke/Sites/tabhqreact
+48 verbose already installed skipping karma-phantomjs-launcher@~0.1.3 /Users/luke/Sites/tabhqreact
+49 verbose already installed skipping karma@~0.12.21 /Users/luke/Sites/tabhqreact
+50 verbose already installed skipping grunt-karma@~0.8.3 /Users/luke/Sites/tabhqreact
+51 verbose already installed skipping karma-webpack@~1.2.2 /Users/luke/Sites/tabhqreact
+52 verbose already installed skipping webpack-dev-server@~1.6.5 /Users/luke/Sites/tabhqreact
+53 verbose already installed skipping grunt-open@~0.2.3 /Users/luke/Sites/tabhqreact
+54 verbose already installed skipping jshint-loader@~0.8.0 /Users/luke/Sites/tabhqreact
+55 verbose already installed skipping jsxhint-loader@~0.2.0 /Users/luke/Sites/tabhqreact
+56 verbose already installed skipping grunt-contrib-copy@~0.5.0 /Users/luke/Sites/tabhqreact
+57 verbose already installed skipping babel@^4.0.0 /Users/luke/Sites/tabhqreact
+58 verbose already installed skipping babel-loader@^4.0.0 /Users/luke/Sites/tabhqreact
+59 verbose already installed skipping grunt-contrib-clean@~0.6.0 /Users/luke/Sites/tabhqreact
+60 verbose already installed skipping sass-loader@^1.0.1 /Users/luke/Sites/tabhqreact
+61 verbose already installed skipping react-hot-loader@^1.0.7 /Users/luke/Sites/tabhqreact
+62 verbose already installed skipping events@^1.0.2 /Users/luke/Sites/tabhqreact
+63 verbose already installed skipping file-loader@^0.8.4 /Users/luke/Sites/tabhqreact
+64 http 404 https://registry.npmjs.org/alloy-editor
+65 silly registry.get cb [ 404,
+65 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+65 silly registry.get     etag: '"11GU43ZN5GLF1ONEY9E8X5KNN"',
+65 silly registry.get     'content-type': 'application/json',
+65 silly registry.get     'cache-control': 'max-age=0',
+65 silly registry.get     'content-length': '411',
+65 silly registry.get     'accept-ranges': 'bytes',
+65 silly registry.get     date: 'Wed, 15 Jul 2015 07:24:01 GMT',
+65 silly registry.get     via: '1.1 varnish',
+65 silly registry.get     age: '0',
+65 silly registry.get     connection: 'keep-alive',
+65 silly registry.get     'x-served-by': 'cache-lcy1135-LCY',
+65 silly registry.get     'x-cache': 'MISS',
+65 silly registry.get     'x-cache-hits': '0',
+65 silly registry.get     'x-timer': 'S1436945041.852493,VS0,VE111',
+65 silly registry.get     vary: 'Accept' } ]
+66 silly lockFile 2af2b4f1-alloy-editor-0-3-7 alloy-editor@^0.3.7
+67 silly lockFile 2af2b4f1-alloy-editor-0-3-7 alloy-editor@^0.3.7
+68 error 404 Not Found
+68 error 404
+68 error 404 'alloy-editor' is not in the npm registry.
+68 error 404 You should bug the author to publish it
+68 error 404 It was specified as a dependency of 'tabhqreact'
+68 error 404
+68 error 404 Note that you can also install from a
+68 error 404 tarball, folder, or http url, or git url.
+69 error System Darwin 13.4.0
+70 error command "node" "/usr/local/bin/npm" "install"
+71 error cwd /Users/luke/Sites/tabhqreact
+72 error node -v v0.10.35
+73 error npm -v 1.4.28
+74 error code E404
+75 verbose exit [ 1, true ]

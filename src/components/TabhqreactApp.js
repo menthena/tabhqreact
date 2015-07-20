@@ -6,8 +6,6 @@ var Router = require('react-router');
 var Menu = require('./Menu');
 var Content = require('./Content');
 var ReactTransitionGroup = React.addons.TransitionGroup;
-
-
 // CSS
 require('../styles/main.sass');
 

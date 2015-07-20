@@ -2,6 +2,7 @@
 
 var React = require('react/addons');
 var PageComponent = require('./PageComponent');
+var Editor = require('react-medium-editor');
 
 require('styles/ContentSection.sass');
 
@@ -25,7 +26,7 @@ var ContentSection = React.createClass({
         <section ref={'section_' + index}>
           <div className='content-inner'>
             <header>
-              <h1>{section.title}</h1>
+              <Editor tag="h1" text={section.title} options={{buttons:[]}} />
             </header>
             <PageComponent isAdmin={isAdmin} copy={section.copy} data={section.data}></PageComponent>
           </div>
