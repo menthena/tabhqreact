@@ -12,15 +12,13 @@ var PageComponent = React.createClass({
     var copy = this.props.copy;
     var data = this.props.data;
     var isAdmin = this.props.isAdmin;
-
     return (
         <div>
-          <TextComponent isAdmin={isAdmin} copy={copy}></TextComponent>
+          <TextComponent updateSections={this.props.updateSections} isAdmin={isAdmin} copy={copy}></TextComponent>
           <ListComponent isAdmin={isAdmin} data={data}></ListComponent>
         </div>
       );
   }
 });
 
-module.exports = PageComponent; 
-
+module.exports = PageComponent;

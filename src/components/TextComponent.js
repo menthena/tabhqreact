@@ -10,7 +10,9 @@ require('medium-editor/dist/css/themes/default.css');
 var TextComponent = React.createClass({
 
   handleContentChange: function(content) {
-    this.setState({copy: content});
+    // this.setState({copy: content});
+    console.log(this.props);
+    this.props.updateSections();
   },
 
   getInitialState: function() {
@@ -28,5 +30,4 @@ var TextComponent = React.createClass({
   }
 });
 
-module.exports = TextComponent; 
-
+module.exports = TextComponent;

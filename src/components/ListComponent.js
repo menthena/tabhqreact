@@ -3,14 +3,25 @@
 var React = require('react/addons');
 var FileComponent = require('./FileComponent');
 var UrlComponent = require('./UrlComponent');
+var DragMixin = require('../mixins/DragMixin');
 var update = React.addons.update;
 
 require('styles/ListComponent.sass');
 
-var placeholder = document.createElement("div");
-placeholder.className = "placeholder";
-
 var ListComponent = React.createClass({
+  mixins: [DragMixin],
+
+  setDraggableData: function(sections) {
+    this.setState({
+      data: sections
+    });
+  },
+
+  addLink: function(elem) {
+    this.setState({
+      data: update(this.state.data, { $push: [elem] })
+    });
+  },
 
   getInitialState: function() {
     return {
@@ -18,18 +29,17 @@ var ListComponent = React.createClass({
     };
   },
 
-  addLink: function() {
+  addLinkPlaceholder: function() {
     //var update = React.addons.update;
     var elem = {
       'title': 'IT Guide',
       'extensions': 'PDF',
       'url': 'http://google.com',
       'size': 2077912,
-      'updated_at': '2014-12-10T13:48:35.808Z'
+      'updated_at': '2014-12-10T13:48:35.808Z',
+      'order': this.state.data.length - 1
     };
-    this.setState({
-      data: update(this.state.data, { $push: [elem] })
-    });
+    this.addLink(elem);
   },
 
   removeLink(file) {
@@ -39,55 +49,18 @@ var ListComponent = React.createClass({
     });
   },
 
-  dragStart: function(e) {
-    this.dragged = e.currentTarget;
-    e.dataTransfer.effectAllowed = 'move';
-
-    // // Firefox requires calling dataTransfer.setData
-    // // for the drag to properly work
-    e.dataTransfer.setData('text/html', e.currentTarget);
-  },
-  
-  dragEnd: function(e) {
-    this.dragged.style.display = 'block';
-    this.dragged.parentNode.removeChild(placeholder);
-
-    // Update state
-    var data = this.state.data;
-    var from = Number(this.dragged.dataset.id);
-    var to = Number(this.over.dataset.id);
-    console.log(to, from);
-    if (from < to) { 
-      to--;
-    }
-    data.splice(to, 0, data.splice(from, 1)[0]);
-    this.setState({data: data});
-  },
-  
-  dragOver: function(e) {
-    e.preventDefault();
-    this.dragged.style.display = 'none';
-    if (e.target.className === 'placeholder') {
-      return;
-    }
-    this.over = e.target;
-    if ( e.target.className === 'file' ) {
-      e.target.parentNode.insertBefore(placeholder, e.target);
-    }
-  },
-
   render: function () {
     var data = this.state.data || [];
     var isAdmin = this.props.isAdmin;
     var addLinkButton = '';
     if (isAdmin) {
-      addLinkButton = <button className="btn btn-default" onClick={this.addLink}>Add link</button>;
+      addLinkButton = <button className="btn btn-default" onClick={this.addLinkPlaceholder}>Add link</button>;
     }
-
+    this.loadDraggableData(this.state.data);
     return (
-        <div className="files" onDragOver={this.dragOver}>
+        <div className="files" onDragOver={this.dragOver} onDrop={this.drop}>
           {data.map(function(file, i) {
-            return (<FileComponent id={i} dragStart={this.dragStart} dragEnd={this.dragEnd} file={file} onClick={this.removeLink} isAdmin={isAdmin}></FileComponent>);
+            return (<FileComponent order={file.order} dragStart={this.dragStart} dragEnd={this.dragEnd} mouseDown={this.mouseDown} file={file} onClick={this.removeLink} isAdmin={isAdmin}></FileComponent>);
           }.bind(this))}
 
           {addLinkButton}

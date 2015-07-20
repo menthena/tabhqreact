@@ -34,9 +34,9 @@ var Category = React.createClass({
     });
 
     return (
-        <div>
+        <div data-order={category.order} data-droppable="category" draggable="true" onDragStart={this.props.dragStart} onDragEnd={this.props.dragEnd} onMouseEnter={this.props.dragHover} style={{'pointer-events': 'all'}}>
           <h3 className={ classes } onClick={this.handleClick}>{category.title}</h3>
-          <MenuSections category={category} isVisible={this.state.isVisible} currentSection={currentSection} />
+          <MenuSections updateSections={this.props.updateSections} category={category} isVisible={this.state.isVisible} currentSection={currentSection} />
         </div>
       );
   }

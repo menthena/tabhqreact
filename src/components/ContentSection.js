@@ -17,6 +17,17 @@ var ContentSection = React.createClass({
     return domNode.getBoundingClientRect().top;
   },
 
+  handleContentChange(content) {
+      this.setState({copy: content});
+      // this.props.updateSection();
+  },
+
+  getInitialState: function() {
+    return {
+      copy: this.props.copy
+    };
+  },
+
   render: function () {
     var section = this.props.section;
     var isAdmin = this.props.isAdmin;
@@ -26,14 +37,13 @@ var ContentSection = React.createClass({
         <section ref={'section_' + index}>
           <div className='content-inner'>
             <header>
-              <Editor tag="h1" text={section.title} options={{buttons:[]}} />
+              <Editor tag="h1" text={section.title} onChange={this.handleContentChange} options={{buttons:[]}} />
             </header>
-            <PageComponent isAdmin={isAdmin} copy={section.copy} data={section.data}></PageComponent>
+            <PageComponent isAdmin={isAdmin} copy={section.copy} updateSections={this.props.updateSections} data={section.data}></PageComponent>
           </div>
         </section>
       );
   }
 });
 
-module.exports = ContentSection; 
-
+module.exports = ContentSection;
