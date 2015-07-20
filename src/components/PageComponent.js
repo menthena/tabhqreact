@@ -12,7 +12,6 @@ var PageComponent = React.createClass({
     var copy = this.props.copy;
     var data = this.props.data;
     var isAdmin = this.props.isAdmin;
-
     return (
         <div>
           <TextComponent isAdmin={isAdmin} copy={copy}></TextComponent>

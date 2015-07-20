@@ -11,8 +11,16 @@ require('styles/ListComponent.sass');
 var ListComponent = React.createClass({
   mixins: [DragMixin],
 
-  componentDidMount() {
-    this.loadDraggableData(this.state.data);
+  setDraggableData: function(sections) {
+    this.setState({
+      data: sections
+    });
+  },
+
+  addLink: function(elem) {
+    this.setState({
+      data: update(this.state.data, { $push: [elem] })
+    });
   },
 
   getInitialState: function() {
@@ -21,18 +29,17 @@ var ListComponent = React.createClass({
     };
   },
 
-  addLink: function() {
+  addLinkPlaceholder: function() {
     //var update = React.addons.update;
     var elem = {
       'title': 'IT Guide',
       'extensions': 'PDF',
       'url': 'http://google.com',
       'size': 2077912,
-      'updated_at': '2014-12-10T13:48:35.808Z'
+      'updated_at': '2014-12-10T13:48:35.808Z',
+      'order': this.state.data.length - 1
     };
-    this.setState({
-      data: update(this.state.data, { $push: [elem] })
-    });
+    this.addLink(elem);
   },
 
   removeLink(file) {
@@ -47,13 +54,13 @@ var ListComponent = React.createClass({
     var isAdmin = this.props.isAdmin;
     var addLinkButton = '';
     if (isAdmin) {
-      addLinkButton = <button className="btn btn-default" onClick={this.addLink}>Add link</button>;
+      addLinkButton = <button className="btn btn-default" onClick={this.addLinkPlaceholder}>Add link</button>;
     }
-
+    this.loadDraggableData(this.state.data);
     return (
-        <div className="files" onDragOver={this.dragOver}>
+        <div className="files" onDragOver={this.dragOver} onDrop={this.drop}>
           {data.map(function(file, i) {
-            return (<FileComponent id={i} dragStart={this.dragStart} dragEnd={this.dragEnd} mouseDown={this.mouseDown} file={file} onClick={this.removeLink} isAdmin={isAdmin}></FileComponent>);
+            return (<FileComponent order={file.order} dragStart={this.dragStart} dragEnd={this.dragEnd} mouseDown={this.mouseDown} file={file} onClick={this.removeLink} isAdmin={isAdmin}></FileComponent>);
           }.bind(this))}
 
           {addLinkButton}

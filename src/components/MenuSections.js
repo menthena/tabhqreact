@@ -6,38 +6,33 @@ var DragMixin = require('../mixins/DragMixin');
 var MenuSections = React.createClass({
   mixins: [DragMixin],
 
-  componentDidMount() {
-    this.loadDraggableData(this.state.sections);
-  },
-
-  getInitialState() {
-    return {
-      sections: this.props.category.sections
-    };
+  setDraggableData: function(sections) {
+    this.props.updateSections(this.props.category, sections);
   },
 
   render: function () {
     var category = this.props.category;
-    var sections = this.state.sections;
     var isVisible = this.props.isVisible;
     var currentSection = this.props.currentSection;
+
+    this.loadDraggableData(this.props.category.sections);
 
     var inlineStyles = {
       display : isVisible ? 'block' : 'none'
     };
 
-    if (sections.length) {
+    if (category.sections.length) {
       return (
         <div onDragOver={this.dragOver}>
           <ul style={ inlineStyles }>
-            {sections.map(function(section, index) {
+            {category.sections.map(function(section, index) {
 
               var currentSectionStyle = {
                 fontWeight : currentSection === section.title ? 'bold' : 'normal'
               };
 
               return (
-                <li key={ category.title + section.title } data-id={index} style={ currentSectionStyle } data-droppable="menu-sections" draggable="true" onDragEnd={this.dragEnd} onDragStart={this.dragStart}>
+                <li key={ category.title + section.title } data-order={section.order} style={ currentSectionStyle } data-droppable="menu-sections" draggable="true" onDragEnd={this.dragEnd} onDragStart={this.dragStart}>
                   {section.title}
                 </li>
               );

@@ -8,15 +8,18 @@ var Accordion = React.createClass({
   mixins: [DragMixin],
 
   componentDidMount() {
-    this.loadDraggableData(this.state.categories);
+    this.loadDraggableData(this.props.categories);
   },
 
   getInitialState: function() {
     return {
       visibleCategory: null,
-      activeMenuSection: {},
-      categories: this.props.categories
+      activeMenuSection: {}
     };
+  },
+
+  setDraggableData: function(categories) {
+    this.props.updateCategories(categories);
   },
 
   handleClick: function(category) {
@@ -34,11 +37,10 @@ var Accordion = React.createClass({
   render: function () {
 
     var categories = [];
-    var items = this.state.categories;
+    var items = this.props.categories;
     var currentSection = this.props.currentSection;
-
     for (var key in items) {
-      categories.push(<Category idKey={key} category={items[key]} currentSection={currentSection} dragEnd={this.dragEnd} dragStart={this.dragStart} dragHover={this.dragHover} />);
+      categories.push(<Category idKey={key} category={items[key]} updateSections={this.props.updateSections} currentSection={currentSection} dragEnd={this.dragEnd} dragStart={this.dragStart} dragHover={this.dragHover} />);
     }
 
     return (

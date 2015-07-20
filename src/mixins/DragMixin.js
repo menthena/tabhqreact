@@ -1,6 +1,7 @@
 'use strict';
 
 require('../styles/DragMixin.sass');
+var _ = require( 'lodash' );
 
 var DragMixin = {
 
@@ -23,6 +24,20 @@ var DragMixin = {
     e.dataTransfer.setData('text/html', e.currentTarget);
   },
 
+  drop: function(e){
+    e.preventDefault();
+    if (e.dataTransfer.effectAllowed !== 'copy') {
+      this.add({
+        'title': 'IT Guide',
+        'extensions': 'PDF',
+        'url': 'http://google.com',
+        'size': 2077912,
+        'updated_at': '2014-12-10T13:48:35.808Z',
+        'order': this.draggableData.length - 1
+      });
+    }
+  },
+
   mouseDown: function(e){
     var element = e.target;
     if (element.className.indexOf('drag-controller') === -1) {
@@ -37,16 +52,21 @@ var DragMixin = {
       this.dragged.parentNode.removeChild(this.placeholder);
 
       // Update state
-      var from = Number(this.dragged.dataset.id);
-      var to = Number(this.over.dataset.id);
-      if (from < to) { 
-        to--;
+      var from = Number(this.dragged.dataset.order);
+      var to = Number(this.over.dataset.order);
+      if (!isNaN(to) && !isNaN(from)) {
+        var dragged = _.find(this.draggableData, { order: from});
+        var over = _.find(this.draggableData, { order: to});
+        dragged.order = to;
+        over.order = from;
+        this.draggableData.sort(function (a, b) {
+          return a.order - b.order;
+        });
+        this.setDraggableData(this.draggableData);
       }
-      this.draggableData.splice(to, 0, this.draggableData.splice(from, 1)[0]);
-      this.setState({data: this.draggableData});
       this.dragged = null;
     } else {
-      this.dragged.parentNode.removeChild(this.placeholder);
+      // this.dragged.parentNode.removeChild(this.placeholder);
     }
   },
   

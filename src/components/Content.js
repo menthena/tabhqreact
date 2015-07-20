@@ -19,7 +19,6 @@ var Content = React.createClass({
     }
 
     if (closestSection) {
-      // console.log(scrollTop, closestSection.getOffsetTop());
       this.props.onSectionScroll(closestSection.props.section.title);
     }
 
@@ -27,18 +26,23 @@ var Content = React.createClass({
 
   render: function () {
 
-    var sections = [];
-    var items = this.props.sections;
+    var contentSections = [];
+    var categories = this.props.categories;
     var isAdmin = this.props.isAdmin;
+    var sections;
 
-    for (var key in items) {
-      sections.push(<ContentSection isAdmin={isAdmin} key={key} section={items[key]} ref={'contentsection_' + key} />);
+
+    for (var id in categories) {
+      for (var key in categories[id].sections) {
+        sections = categories[id].sections;
+        contentSections.push(<ContentSection isAdmin={isAdmin} key={id + key + sections[key]} section={sections[key]} ref={'contentsection_' + key} />);
+      }
     }
 
     return (
         <div id="content">
           <Header/>
-          {sections}
+          {contentSections}
         </div>
       );
   }
