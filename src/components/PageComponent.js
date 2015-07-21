@@ -14,7 +14,7 @@ var PageComponent = React.createClass({
     var isAdmin = this.props.isAdmin;
     return (
         <div>
-          <TextComponent updateSections={this.props.updateSections} isAdmin={isAdmin} copy={copy}></TextComponent>
+          <TextComponent index={this.props.index} updateSections={this.props.updateSections} isAdmin={isAdmin} copy={copy}></TextComponent>
           <ListComponent isAdmin={isAdmin} data={data}></ListComponent>
         </div>
       );

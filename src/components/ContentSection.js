@@ -39,7 +39,7 @@ var ContentSection = React.createClass({
             <header>
               <Editor tag="h1" text={section.title} onChange={this.handleContentChange} options={{buttons:[]}} />
             </header>
-            <PageComponent isAdmin={isAdmin} copy={section.copy} updateSections={this.props.updateSections} data={section.data}></PageComponent>
+            <PageComponent index={index} isAdmin={isAdmin} copy={section.copy} updateSections={this.props.updateSections} data={section.data}></PageComponent>
           </div>
         </section>
       );

@@ -1,12 +1,26 @@
 'use strict';
 
-var AppDispatcher = require('../dispatcher/TabhqreactAppDispatcher');
+var AppDispatcher = require('../dispatchers/AppDispatcher');
+var AppConstants = require('../constants/AppConstants');
 
 var AppActions = {
-  updateItem: function(item) {
+  addItem: function(item) {
     AppDispatcher.handleViewAction({
-      actionType: 'UPDATE_ITEM',
+      actionType: AppConstants.ADD_ITEM,
       item: item
+    });
+  },
+  removeItem: function(index) {
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.REMOVE_ITEM,
+      index: index
+    });
+  },
+  updateItem: function(index, content) {
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.UPDATE_ITEM,
+      index: index,
+      content: content
     });
   }
 };

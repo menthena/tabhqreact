@@ -39,9 +39,10 @@ var Accordion = React.createClass({
     var categories = [];
     var items = this.props.categories;
     var currentSection = this.props.currentSection;
-    for (var key in items) {
-      categories.push(<Category idKey={key} category={items[key]} updateSections={this.props.updateSections} currentSection={currentSection} dragEnd={this.dragEnd} dragStart={this.dragStart} dragHover={this.dragHover} />);
-    }
+
+    items.map(function(item) {
+      categories.push(<Category key={item.id} category={item} updateSections={this.props.updateSections} currentSection={currentSection} dragEnd={this.dragEnd} dragStart={this.dragStart} dragHover={this.dragHover} />);
+    }.bind(this));
 
     return (
         <div id="categories" className="Accordion" onDragOver={this.dragOver}>
@@ -51,5 +52,4 @@ var Accordion = React.createClass({
   }
 });
 
-module.exports = Accordion; 
-
+module.exports = Accordion;

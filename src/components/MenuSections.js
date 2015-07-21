@@ -48,5 +48,4 @@ var MenuSections = React.createClass({
   }
 });
 
-module.exports = MenuSections; 
-
+module.exports = MenuSections;

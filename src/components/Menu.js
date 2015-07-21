@@ -10,6 +10,7 @@ var Menu = React.createClass({
   render: function () {
     var categories = this.props.categories;
     var currentSection = this.props.currentSection;
+
     return (
         <div id='menu'>
           <div id='menu-inner'>
@@ -27,5 +28,4 @@ var Menu = React.createClass({
   }
 });
 
-module.exports = Menu; 
-
+module.exports = Menu;

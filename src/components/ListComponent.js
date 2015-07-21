@@ -60,7 +60,7 @@ var ListComponent = React.createClass({
     return (
         <div className="files" onDragOver={this.dragOver} onDrop={this.drop}>
           {data.map(function(file, i) {
-            return (<FileComponent order={file.order} dragStart={this.dragStart} dragEnd={this.dragEnd} mouseDown={this.mouseDown} file={file} onClick={this.removeLink} isAdmin={isAdmin}></FileComponent>);
+            return (<FileComponent key={i} order={file.order} dragStart={this.dragStart} dragEnd={this.dragEnd} mouseDown={this.mouseDown} file={file} onClick={this.removeLink} isAdmin={isAdmin}></FileComponent>);
           }.bind(this))}
 
           {addLinkButton}
@@ -70,5 +70,4 @@ var ListComponent = React.createClass({
   }
 });
 
-module.exports = ListComponent; 
-
+module.exports = ListComponent;
