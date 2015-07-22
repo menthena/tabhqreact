@@ -4,12 +4,13 @@ var React = require('react/addons');
 var FileComponent = require('./FileComponent');
 var UrlComponent = require('./UrlComponent');
 var DragMixin = require('../mixins/DragMixin');
+var GoogleDriveMixin = require('../mixins/GoogleDriveMixin');
 var update = React.addons.update;
 
 require('styles/ListComponent.sass');
 
 var ListComponent = React.createClass({
-  mixins: [DragMixin],
+  mixins: [DragMixin, GoogleDriveMixin],
 
   setDraggableData: function(sections) {
     this.setState({
@@ -53,8 +54,10 @@ var ListComponent = React.createClass({
     var data = this.state.data || [];
     var isAdmin = this.props.isAdmin;
     var addLinkButton = '';
+    var googleDriveButton = '';
     if (isAdmin) {
       addLinkButton = <button className="btn btn-default" onClick={this.addLinkPlaceholder}>Add link</button>;
+      googleDriveButton = <button id="google-button" className="btn btn-default" onClick={this.addFilesFromGoogleDrive}>Add from Google Drive</button>;
     }
     this.loadDraggableData(this.state.data);
     return (
@@ -64,6 +67,7 @@ var ListComponent = React.createClass({
           }.bind(this))}
 
           {addLinkButton}
+          {googleDriveButton}
 
         </div>
       );

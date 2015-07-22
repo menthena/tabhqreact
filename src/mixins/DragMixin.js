@@ -27,7 +27,7 @@ var DragMixin = {
   drop: function(e){
     e.preventDefault();
     if (e.dataTransfer.effectAllowed !== 'copy') {
-      this.add({
+      this.addLink({
         'title': 'IT Guide',
         'extensions': 'PDF',
         'url': 'http://google.com',

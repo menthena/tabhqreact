@@ -42,7 +42,7 @@ var FileComponent = React.createClass({
             </form>
             <p>
               <span className="file-type">
-                <a target="_blank" href="{file.url}">{info}</a>
+                <a target="_blank" href={file.url}>{info}</a>
               </span>
               <span> (Last updated 28/04/2015)</span>
             </p>
@@ -50,7 +50,7 @@ var FileComponent = React.createClass({
         </div>
         <div className="pull-right">
           <div className="icon download pull-left">
-            <a href="{file.url}">
+            <a href={file.url} target="_blank">
               {image}
             </a>
           </div>

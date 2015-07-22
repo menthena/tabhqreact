@@ -173,6 +173,8 @@ var TabhqreactApp = React.createClass({
       <div id='wrapper'>
         <Menu categories={this.state.categories} updateSections={this.updateSections} updateCategories={this.updateCategories} currentSection={this.state.currentSection} />
         <Content isAdmin={this.state.isAdmin} categories={this.state.categories} onSectionScroll={this.handleSectionScroll} ref='content' />
+        <input type="file" id="filePicker" style={{display: 'none'}} />
+        <div id="result"></div>
       </div>
     );
   }
