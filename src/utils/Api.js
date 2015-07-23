@@ -1,16 +1,16 @@
 'use strict';
 
 var axios = require('axios');
+var AppActions = require('../actions/AppActions');
+var ServerActions = require('../actions/ServerActions');
+var baseApiUrl = 'http://localhost:3000/';
 
-function getUserInfo(username) {
-  return axios.get('https://api.github.com/users/' + username);
-}
-
-var api = {
-  getGithubInfo: function(username) {
-    return axios.all([getUserInfo(username)])
-      .then(function(arr) {
-
-      });
+var Api = {
+  getCategories: function() {
+    return axios.get(baseApiUrl + 'categories').then(function(response) {
+      ServerActions.receiveData(response.data.data);
+    });
   }
 };
+
+module.exports = Api;

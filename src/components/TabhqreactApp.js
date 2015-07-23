@@ -7,21 +7,20 @@ var Router = require('react-router');
 var Menu = require('./Menu');
 var Content = require('./Content');
 var ReactTransitionGroup = React.addons.TransitionGroup;
-var AppStore = require('../stores/AppStore');
-
-function getCategories() {
-  return {
-    items: AppStore.getCategories()
-  };
-}
+var Api = require('../utils/Api');
+var AppActions = require('../actions/AppActions');
 
 // CSS
 require('../styles/main.sass');
 
+var categories = [];
+
 var TabhqreactApp = React.createClass({
 
   getInitialState: function() {
-    return getCategories();
+    return {
+      items: []
+    };
   },
 
   handleSectionScroll: function(sectionTitle) {
@@ -67,6 +66,7 @@ var TabhqreactApp = React.createClass({
   },
 
   render: function() {
+    console.log(this.state);
     return (
       <div id='wrapper'>
         <Menu categories={this.state.items} updateSections={this.updateSections} updateCategories={this.updateCategories} currentSection={this.state.currentSection} />

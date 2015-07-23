@@ -4,6 +4,9 @@ var TabhqreactApp = require('./TabhqreactApp');
 var React = require('react');
 var Router = require('react-router');
 var Route = Router.Route;
+var Api = require('../utils/Api');
+
+Api.getCategories();
 
 var content = document.getElementById('content');
 

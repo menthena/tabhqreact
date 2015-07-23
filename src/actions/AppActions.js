@@ -2,8 +2,16 @@
 
 var AppDispatcher = require('../dispatchers/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
+var Api = require('../utils/Api');
 
 var AppActions = {
+  getCategories: function(data) {
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.RECEIVE_DATA,
+      data: data
+    });
+    Api.getCategories(data);
+  },
   addItem: function(item) {
     AppDispatcher.handleViewAction({
       actionType: AppConstants.ADD_ITEM,
