@@ -20,7 +20,7 @@ var Menu = React.createClass({
               <h4>Beta v0.1</h4>
             </div>
             <div className='scroll'>
-              <Accordion categories={categories} updateSections={this.props.updateSections} updateCategories={this.props.updateCategories} currentSection={currentSection}/>
+              <Accordion categories={categories} currentSection={currentSection}/>
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@ require('medium-editor/dist/css/themes/default.css');
 var TextComponent = React.createClass({
 
   handleContentChange: function(content) {
-    AppActions.updateItem(this.props.index, content);
+    AppActions.updateSection(this.props.index, {copy: content});
   },
 
   getInitialState: function() {
@@ -23,7 +23,7 @@ var TextComponent = React.createClass({
   render: function () {
     return (
         <div className="copy">
-         <Editor index={this.props.index} text={this.state.copy} onChange={this.handleContentChange} options={{buttons: ['bold', 'italic', 'underline', 'anchor', 'header2']}} />
+         <Editor index={this.props.index} text={this.state.copy} onChange={this.handleContentChange} options={{buttons: ['bold', 'italic', 'underline', 'anchor', 'header2']}}/>
         </div>
       );
   }

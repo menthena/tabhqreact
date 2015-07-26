@@ -9,11 +9,10 @@ var Content = require('./Content');
 var ReactTransitionGroup = React.addons.TransitionGroup;
 var Api = require('../utils/Api');
 var AppActions = require('../actions/AppActions');
+var AppStore = require('../stores/AppStore');
 
 // CSS
 require('../styles/main.sass');
-
-var categories = [];
 
 var TabhqreactApp = React.createClass({
 
@@ -29,26 +28,10 @@ var TabhqreactApp = React.createClass({
     });
   },
 
-  updateCategories: function(categories) {
+  _onChange() {
     this.setState({
-      categories: categories
+      items: AppStore.getCategories()
     });
-  },
-
-  updateSections: function(category, sections) {
-    var categories = this.state.categories;
-    _.find(categories, function(categoryInState, index) {
-      if (category.id === categoryInState.id) {
-        categories[index].sections = sections;
-      }
-    });
-    this.setState({
-      categories: categories
-    });
-  },
-
-  updateSection: function(section) {
-
   },
 
   handleScroll() {
@@ -56,21 +39,24 @@ var TabhqreactApp = React.createClass({
   },
 
   componentDidMount() {
+    AppActions.getCategories();
+    AppStore.addChangeListener(this._onChange);
+
     if (ExecutionEnvironment.canUseDOM) {
       document.addEventListener('scroll', this.handleScroll);
     }
   },
 
   componentWillUnmount() {
+    AppStore.removeChangeListener(this._onChange);
     document.removeEventListener('scroll', this.handleScroll);
   },
 
   render: function() {
-    console.log(this.state);
     return (
       <div id='wrapper'>
-        <Menu categories={this.state.items} updateSections={this.updateSections} updateCategories={this.updateCategories} currentSection={this.state.currentSection} />
-        <Content isAdmin={this.state.isAdmin} categories={this.state.items} updateSections={this.updateSections} onSectionScroll={this.handleSectionScroll} ref='content' />
+        <Menu categories={this.state.items} currentSection={this.state.currentSection} />
+        <Content isAdmin={this.state.isAdmin} categories={this.state.items} onSectionScroll={this.handleSectionScroll} ref='content' />
       </div>
     );
   }

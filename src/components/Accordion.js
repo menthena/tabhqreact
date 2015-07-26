@@ -3,13 +3,10 @@
 var React = require('react/addons');
 var Category = require('./Category');
 var DragMixin = require('../mixins/DragMixin');
+var AppActions = require('../actions/AppActions');
 
 var Accordion = React.createClass({
   mixins: [DragMixin],
-
-  componentDidMount() {
-    this.loadDraggableData(this.props.categories);
-  },
 
   getInitialState: function() {
     return {
@@ -19,7 +16,7 @@ var Accordion = React.createClass({
   },
 
   setDraggableData: function(categories) {
-    this.props.updateCategories(categories);
+    AppActions.sortCategories(categories);
   },
 
   handleClick: function(category) {
@@ -40,8 +37,10 @@ var Accordion = React.createClass({
     var items = this.props.categories;
     var currentSection = this.props.currentSection;
 
+    this.loadDraggableData(this.props.categories);
+
     items.map(function(item) {
-      categories.push(<Category key={item.id} category={item} updateSections={this.props.updateSections} currentSection={currentSection} dragEnd={this.dragEnd} dragStart={this.dragStart} dragHover={this.dragHover} />);
+      categories.push(<Category key={item.id} category={item} currentSection={currentSection} dragEnd={this.dragEnd} dragStart={this.dragStart} dragHover={this.dragHover} />);
     }.bind(this));
 
     return (

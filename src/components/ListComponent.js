@@ -4,6 +4,7 @@ var React = require('react/addons');
 var FileComponent = require('./FileComponent');
 var UrlComponent = require('./UrlComponent');
 var DragMixin = require('../mixins/DragMixin');
+var AppActions = require('../actions/AppActions');
 var update = React.addons.update;
 
 require('styles/ListComponent.sass');
@@ -11,10 +12,9 @@ require('styles/ListComponent.sass');
 var ListComponent = React.createClass({
   mixins: [DragMixin],
 
-  setDraggableData: function(sections) {
-    this.setState({
-      data: sections
-    });
+  setDraggableData: function(items) {
+    var sectionID = this.props.index;
+    AppActions.sortSectionItems(sectionID, items);
   },
 
   addLink: function(elem) {

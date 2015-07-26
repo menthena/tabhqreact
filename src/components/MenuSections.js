@@ -2,12 +2,14 @@
 
 var React = require('react/addons');
 var DragMixin = require('../mixins/DragMixin');
+var AppActions = require('../actions/AppActions');
 
 var MenuSections = React.createClass({
   mixins: [DragMixin],
 
   setDraggableData: function(sections) {
-    this.props.updateSections(this.props.category, sections);
+    var categoryID = this.props.category.id;
+    AppActions.sortCategorySections(categoryID, sections);
   },
 
   render: function () {
