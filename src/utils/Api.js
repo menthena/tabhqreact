@@ -8,7 +8,7 @@ var baseApiUrl = 'http://localhost:3000/';
 var Api = {
 
   getCategories: function() {
-    return axios.get(baseApiUrl + 'categories').then(function(response) {
+    return axios.get(baseApiUrl + 'categories?includes=sections').then(function(response) {
       ServerActions.receiveData(response.data.data);
     });
   },
