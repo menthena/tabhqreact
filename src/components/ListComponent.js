@@ -53,6 +53,7 @@ var ListComponent = React.createClass({
     var data = this.state.data || [];
     var isAdmin = this.props.isAdmin;
     var addLinkButton = '';
+
     if (isAdmin) {
       addLinkButton = <button className="btn btn-default" onClick={this.addLinkPlaceholder}>Add link</button>;
     }

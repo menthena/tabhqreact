@@ -18,7 +18,8 @@ var TabhqreactApp = React.createClass({
 
   getInitialState: function() {
     return {
-      items: []
+      items: [],
+      isAdmin: true
     };
   },
 
